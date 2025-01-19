@@ -125,7 +125,9 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    max-width: 100%;
+    max-width: 1200px;
+    padding: 0 30px;
+    margin: 0 auto;
     text-align: left;
     font-size: var(--font-size-sm);
     color: var(--color-black);
