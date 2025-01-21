@@ -4,8 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
 
-    <link rel="stylesheet" href="global.css" />
-    <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap" />
@@ -19,908 +17,2507 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Open Sans:wght@400;600&display=swap" />
   </head>
+  <style>
+    * {
+      box-sizing: border-box;
+      line-height: 1.5;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    body {
+      margin: 0;
+    }
+    .container {
+      padding: 0 30px;
+      margin: 0 auto;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 100px;
+      margin: 100px 0;
+    }
+
+    @media screen and (max-width: 1199px) {
+      .container {
+        padding: 0 15px;
+      }
+    }
+
+    /* Общий стиль для всех кнопок View More */
+    .view-more {
+      font-size: 13px;
+      line-height: 1.43;
+      font-family: "Montserrat", sans-serif;
+      color: #222;
+      text-decoration: underline;
+      opacity: 0.8;
+      cursor: pointer;
+    }
+  </style>
+  <style>
+    .header {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      font-family: "Montserrat", sans-serif;
+      color: #000;
+    }
+
+    .header__top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .header__burger {
+      position: relative;
+      max-width: 100%;
+      overflow: clip;
+    }
+
+    .header__burger-icon {
+      flex: 1;
+      max-width: 100%;
+    }
+
+    .header__logo {
+      display: flex;
+      width: 170px;
+    }
+
+    .header__logo-img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .lang-switcher__icon {
+      height: 20px;
+      width: 30px;
+      overflow: hidden;
+    }
+
+    .lang-switcher__text {
+      font-size: 14px;
+      line-height: 150%;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .main-nav {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      padding: 0 26px;
+      box-sizing: border-box;
+    }
+
+    .main-nav__list {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .main-nav__item {
+      padding: 15px 9px;
+    }
+
+    .main-nav__link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      line-height: 150%;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: #000;
+      text-decoration: none;
+    }
+
+    .main-nav__icon {
+      height: 18px;
+      width: 13px;
+      overflow: hidden;
+    }
+
+    @media screen and (max-width: 1199px) {
+      .main-nav {
+        display: none;
+      }
+    }
+
+    /* Quote Collage */
+
+    .quote-collage {
+      width: 100%;
+      padding: 10px 0;
+      box-sizing: border-box;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .quote-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      width: 100%;
+    }
+
+    .quote-card {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      background: #fff;
+      height: fit-content;
+    }
+
+    .quote-card__content {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding: 0 0 15px;
+      height: auto;
+    }
+
+    .quote-card__title {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.2;
+      font-weight: 700;
+      color: #333;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .quote-card__text {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #666;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .quote-card__link {
+      text-decoration: none;
+      color: #222;
+      font-size: 13px;
+      line-height: 1.46;
+      border-bottom: 1px solid #e5e5e5;
+      align-self: flex-start;
+      opacity: 0.8;
+    }
+
+    .quote-card:nth-child(1) {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .quote-card:nth-child(2) {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .quote-card:nth-child(3) {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      display: flex;
+      align-items: center;
+      align-self: center;
+    }
+
+    .quote-card__image {
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .quote-card:nth-child(1) .quote-card__image {
+      height: 220px;
+    }
+
+    .quote-card:nth-child(2) .quote-card__image {
+      height: 150px;
+    }
+
+    .quote-card:nth-child(3) .quote-card__image {
+      height: 416px;
+    }
+
+    @media screen and (max-width: 825px) {
+      .quote-cards {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+
+      .quote-card:nth-child(1),
+      .quote-card:nth-child(2),
+      .quote-card:nth-child(3) {
+        grid-column: 1;
+        grid-row: auto;
+      }
+
+      .quote-card:nth-child(3) .quote-card__image {
+        height: auto;
+        aspect-ratio: 16/9;
+      }
+    }
+
+    /* Subscription */
+
+    .subscription {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .subscription__inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-content: center;
+      padding: 14px 10px;
+      gap: 35px;
+      border: 1px solid #f8f8f8;
+      border-left: none;
+      border-right: none;
+    }
+
+    .subscription__text {
+      line-height: 150%;
+      font-weight: 500;
+      font-size: 14px;
+      color: #000;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .subscription__button {
+      padding: 0 10px;
+      min-width: 160px;
+      height: 50px;
+      cursor: pointer;
+      border: none;
+      font-family: "Montserrat", sans-serif;
+      font-size: 14px;
+      line-height: 20px;
+      text-align: center;
+      background-color: #045c40;
+      color: #fff;
+    }
+
+    .subscription__button:hover {
+      background-color: #2b8266;
+    }
+
+    @media screen and (max-width: 1250px) {
+      .subscription__inner {
+        padding-inline: 90px;
+      }
+    }
+
+    /* Magazine Section */
+    .magazine__inner {
+      width: 100%;
+    }
+
+    .magazine__header {
+      margin-bottom: 30px;
+    }
+
+    .magazine__intro {
+      margin-bottom: 20px;
+    }
+
+    .magazine__label {
+      display: block;
+      font-size: 15px;
+      line-height: 19px;
+      font-style: italic;
+      font-family: "Montserrat", sans-serif;
+      color: #000;
+      margin-bottom: 10px;
+    }
+
+    .magazine__title {
+      font-size: 40px;
+      line-height: 48px;
+      font-weight: 700;
+      font-family: "Montserrat", sans-serif;
+      color: rgba(0, 0, 0, 0.8);
+      margin: 0;
+    }
+
+    .magazine__description {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .magazine__divider {
+      display: block;
+      width: 3px;
+      height: 51px;
+      background-color: #000;
+    }
+
+    .magazine__text {
+      font-size: 15px;
+      line-height: 25px;
+      font-family: "Roboto", sans-serif;
+      color: #666;
+      margin: 0;
+    }
+
+    .magazine__content {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    .cover {
+      position: relative;
+      height: 729px;
+    }
+
+    .cover__media {
+      position: relative;
+      height: 100%;
+    }
+
+    .cover__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cover__overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    }
+
+    .cover__info {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      color: #fff;
+    }
+
+    .cover__date {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 15px;
+    }
+
+    .cover__year {
+      font-size: 32px;
+      font-family: "Montserrat", sans-serif;
+      line-height: 1.2;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .cover__month {
+      font-size: 14px;
+      font-weight: 700;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .cover__description {
+      font-size: 14px;
+      line-height: 1.71;
+      font-weight: 500;
+      font-family: "Montserrat", sans-serif;
+      max-width: 300px;
+      margin: 0;
+    }
+
+    .featured__top {
+      margin-bottom: 30px;
+    }
+
+    .featured__tag {
+      display: inline-block;
+      padding: 5px 9px;
+      background-color: #045c40;
+      color: #fff;
+      font-size: 11px;
+      line-height: 15px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-family: "Montserrat", sans-serif;
+      margin-bottom: 30px;
+    }
+
+    .featured__title {
+      font-size: 60px;
+      line-height: 78px;
+      font-weight: 500;
+      font-family: "Montserrat", sans-serif;
+      color: #0a0a0a;
+      margin: 0 0 30px;
+    }
+
+    .featured__description {
+      font-size: 14px;
+      line-height: 21px;
+      font-weight: 500;
+      font-family: "Montserrat", sans-serif;
+      margin: 0;
+    }
+
+    .featured__stories {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .story {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .story__image {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .story__content {
+      flex: 1;
+    }
+
+    .story__label {
+      display: block;
+      font-size: 11px;
+      line-height: 14px;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-family: "Montserrat", sans-serif;
+      margin-bottom: 4px;
+    }
+
+    .story__title {
+      font-size: 16px;
+      line-height: 21px;
+      font-weight: 700;
+      font-family: "Montserrat", sans-serif;
+      margin: 0;
+    }
+
+    @media (max-width: 1200px) {
+      .magazine__content {
+        grid-template-columns: 1fr;
+      }
+
+      .featured__title {
+        font-size: 48px;
+        line-height: 62px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .featured__title {
+        font-size: 36px;
+        line-height: 47px;
+      }
+
+      .cover {
+        height: 500px;
+      }
+    }
+
+    /* Article Panel Widget Styles */
+
+    .article-panel {
+      padding: 40px 0;
+    }
+
+    .article-panel__inner {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .article-panel__content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .article-panel__category {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5px;
+      max-width: 100px;
+      background-color: #045c40;
+      color: #fff;
+      font-size: 11px;
+      line-height: 15px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .article-panel__body {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .article-panel__title {
+      margin: 0;
+      font-size: 40px;
+      line-height: 1.2;
+      font-weight: 700;
+      font-family: "Montserrat", sans-serif;
+      color: rgba(0, 0, 0, 0.8);
+    }
+
+    .article-panel__divider {
+      width: 40px;
+      height: 2px;
+      margin: 0;
+      background-color: #045c40;
+      border: none;
+    }
+
+    .article-panel__description {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.5;
+      font-family: "Roboto", sans-serif;
+      color: rgba(0, 0, 0, 0.6);
+    }
+
+    .article-panel__action {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .article-panel__link {
+      color: #222;
+      font-size: 13px;
+      line-height: 1.46;
+      text-decoration: underline;
+      font-family: "Montserrat", sans-serif;
+      opacity: 0.8;
+    }
+
+    .article-panel__figure {
+      flex: 1;
+      margin: 0;
+    }
+
+    .article-panel__image {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+      .article-panel__inner {
+        gap: 20px;
+      }
+
+      .article-panel__title {
+        font-size: 32px;
+        line-height: 40px;
+      }
+    }
+
+    /* One Large Four Small Panels Widget Styles */
+    .one-large-four-small__inner {
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+    }
+
+    .one-large-four-small__main {
+      flex: 1;
+    }
+
+    .one-large-four-small__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .one-large-four-small__content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .one-large-four-small__article {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .one-large-four-small__title {
+      font-size: 32px;
+      line-height: 1.2;
+      font-weight: 700;
+      font-family: "Montserrat", sans-serif;
+      color: #0a0a0a;
+      margin: 0;
+    }
+
+    .one-large-four-small__divider {
+      width: 40px;
+      height: 2px;
+      background-color: #045c40;
+      border: none;
+      margin: 0;
+    }
+
+    .one-large-four-small__description {
+      font-size: 14px;
+      line-height: 1.5;
+      font-family: "Roboto", sans-serif;
+      color: rgba(0, 0, 0, 0.6);
+      margin: 0;
+    }
+
+    .one-large-four-small__link {
+      font-size: 14px;
+      line-height: 1.46;
+      font-family: "Montserrat", sans-serif;
+      color: #222;
+      text-decoration: underline;
+      opacity: 0.8;
+    }
+
+    .one-large-four-small__grid {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .promo-card {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .promo-card__image {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .promo-card__content {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .promo-card__label {
+      font-size: 11px;
+      line-height: 1.27;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #000;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .promo-card__title {
+      font-size: 16px;
+      line-height: 1.4;
+      font-weight: 700;
+      color: #000;
+      font-family: "Montserrat", sans-serif;
+      margin: 0;
+    }
+
+    @media (max-width: 1024px) {
+      .one-large-four-small__inner {
+        flex-direction: column;
+      }
+
+      .one-large-four-small__main {
+        height: 400px;
+      }
+    }
+
+    /* Gallery Widget Styles */
+
+    .gallery__list {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 15px;
+      width: 100%;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .gallery__item {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+      height: 100%;
+    }
+
+    .gallery__item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery__item:nth-child(1) {
+      grid-area: 1 / 1 / 2 / 3;
+    }
+    .gallery__item:nth-child(2) {
+      grid-area: 2 / 1 / 3 / 2;
+    }
+    .gallery__item:nth-child(3) {
+      grid-area: 2 / 2 / 3 / 3;
+    }
+    .gallery__item:nth-child(4) {
+      height: calc(100% - 40px);
+      grid-area: 1 / 3 / 3 / 5;
+    }
+    .gallery__item:nth-child(5) {
+      grid-area: 1 / 5 / 2 / 6;
+    }
+    .gallery__item:nth-child(6) {
+      grid-area: 1 / 6 / 2 / 7;
+    }
+    .gallery__item:nth-child(7) {
+      grid-area: 2 / 5 / 3 / 7;
+    }
+
+    .gallery__item a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: #000;
+    }
+
+    /* Editorial Widget Styles */
+
+    .editorial {
+      width: 100%;
+    }
+
+    .editorial__inner {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .editorial__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .editorial-card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .editorial-card__image {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+    }
+
+    .editorial-card__title {
+      margin: 0;
+      margin-bottom: 20px;
+      font-size: 26px;
+      line-height: 1.4;
+      font-weight: 700;
+      color: rgba(0, 0, 0, 0.8);
+    }
+
+    .editorial-card__description {
+      margin: 0;
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 1.6;
+      font-family: "Roboto", sans-serif;
+      color: rgba(0, 0, 0, 0.6);
+    }
+
+    .tag {
+      display: inline-flex;
+      margin-bottom: 25px;
+      padding: 5px 10px;
+    }
+
+    .tag--green {
+      background-color: #045c40;
+    }
+
+    .tag__text {
+      font-size: 11px;
+      line-height: 1.4;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .link {
+      text-decoration: none;
+      color: #222;
+    }
+
+    .link--underline {
+      border-bottom: 1px solid #848587;
+      font-size: 13px;
+      line-height: 1.43;
+      opacity: 0.8;
+    }
+
+    /* Panel Widget Styles */
+
+    .articles__grid {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 10px 0;
+    }
+
+    .article-card {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      max-width: 100%;
+    }
+
+    .article-card__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .article-card:nth-child(1) .article-card__image {
+      height: 426px;
+    }
+
+    .article-card:nth-child(1) .article-card__body {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding: 30px;
+      background-color: #222;
+    }
+
+    .article-card:nth-child(1) .article-card__title {
+      color: #fff;
+    }
+
+    .article-card:nth-child(1) .article-card__description {
+      color: #fff;
+    }
+
+    .article-card:nth-child(1) .link--underline {
+      border-bottom: 1px solid #fff;
+      color: #fff;
+    }
+
+    .article-card:nth-child(2) .article-card__image {
+      height: 380px;
+    }
+
+    .article-card:nth-child(3) {
+      gap: 0;
+    }
+
+    .article-card:nth-child(3) .article-card__content {
+      padding: 0;
+    }
+
+    .article-card__title {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.4;
+      font-weight: 700;
+      font-family: "Montserrat", sans-serif;
+      color: rgba(0, 0, 0, 0.8);
+    }
+
+    .article-card__description {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.5;
+      font-family: "Roboto", sans-serif;
+      color: rgba(0, 0, 0, 0.6);
+    }
+
+    .articles-label {
+      display: inline-flex;
+      padding: 5px 10px;
+      font-size: 11px;
+      line-height: 1.4;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #fff;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .article-card:nth-child(1) .articles-label {
+      margin-top: 10px;
+    }
+    .article-card:nth-child(2) .articles-label {
+      margin: 10px 0 15px;
+    }
+    .article-card:nth-child(3) .articles-label {
+      margin: 15px 0;
+    }
+
+    .articles-label--green {
+      background-color: #045c40;
+    }
+
+    .articles .link {
+      text-decoration: none;
+      color: #222;
+    }
+
+    .articles .link--underline {
+      border-bottom: 1px solid #848587;
+      font-size: 13px;
+      line-height: 1.43;
+      opacity: 0.8;
+      align-self: flex-start;
+    }
+
+    /* Three Panel Collage Widget Styles */
+
+    .three-panel__inner {
+      width: 100%;
+    }
+
+    .three-panel__list {
+      align-self: stretch;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      padding: 10px 0;
+      box-sizing: border-box;
+      gap: 30px;
+      max-width: 100%;
+      text-align: center;
+    }
+
+    .three-panel__article {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 10px;
+      min-width: 342px;
+      max-width: 100%;
+    }
+
+    .three-panel__label {
+      display: inline-block;
+      padding: 5px 10px;
+      background-color: #045c40;
+      color: #fff;
+      font-size: 11px;
+      letter-spacing: 1px;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+
+    .three-panel__content {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 20px;
+      text-align: left;
+      font-size: 20px;
+      color: rgba(0, 0, 0, 0.8);
+    }
+
+    .three-panel__image {
+      align-self: stretch;
+      height: 460px;
+      position: relative;
+      max-width: 100%;
+      overflow: hidden;
+      flex-shrink: 0;
+      object-fit: cover;
+    }
+
+    .three-panel__description {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 0 0 0 20px;
+      gap: 15px;
+    }
+
+    .three-panel__title {
+      position: relative;
+      font-size: 20px;
+      line-height: 1.3;
+      color: rgba(0, 0, 0, 0.8);
+    }
+
+    .three-panel__text {
+      position: relative;
+      font-size: 16px;
+      line-height: 1.6;
+      font-family: Roboto;
+      color: rgba(0, 0, 0, 0.6);
+    }
+
+    .three-panel__link {
+      text-decoration: underline;
+      position: relative;
+      font-size: 13px;
+      line-height: 1.43;
+      color: #222;
+      cursor: pointer;
+    }
+
+    @media (max-width: 1024px) {
+      .three-panel__inner {
+        flex-direction: column;
+      }
+
+      .three-panel__image {
+        height: 400px;
+      }
+    }
+
+    /* Events Widget Styles */
+
+    .events {
+      align-self: stretch;
+      padding: 0 0 10px;
+      box-sizing: border-box;
+      max-width: 100%;
+      text-align: center;
+    }
+
+    .events__inner {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    .events__list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 30px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .events__item {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .event-card {
+      flex: 1;
+      position: relative;
+    }
+
+    .event-card__img_wrapper {
+      display: flex;
+    }
+
+    .event-card__img_wrapper::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: top;
+      background: linear-gradient(
+        0deg,
+        #000000 0%,
+        rgba(0, 0, 0, 0.918) 5.3%,
+        rgba(0, 0, 0, 0.835) 10.6%,
+        rgba(0, 0, 0, 0.753) 15.9%,
+        rgba(0, 0, 0, 0.67) 21.3%,
+        rgba(0, 0, 0, 0.592) 26.8%,
+        rgba(0, 0, 0, 0.51) 32.5%,
+        rgba(0, 0, 0, 0.43) 38.4%,
+        rgba(0, 0, 0, 0.357) 44.5%,
+        rgba(0, 0, 0, 0.282) 50.9%,
+        rgba(0, 0, 0, 0.21) 57.7%,
+        rgba(0, 0, 0, 0.145) 65%,
+        rgba(0, 0, 0, 0.09) 72.9%,
+        rgba(0, 0, 0, 0.043) 81.4%,
+        rgba(0, 0, 0, 0.01) 90.6%,
+        rgba(0, 0, 0, 0) 100%
+      );
+    }
+
+    .events__item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .event-card__content {
+      position: absolute;
+      bottom: 25px;
+      z-index: 1;
+      padding: 0 30px;
+    }
+
+    .event-card__tag {
+      display: inline-flex;
+      padding: 5px 9px;
+      margin-bottom: 15px;
+      background-color: #045c40;
+    }
+
+    .event-card__tag-text {
+      font-size: 11px;
+      letter-spacing: 1px;
+      line-height: 15.4px;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .event-card__title {
+      margin: 0;
+      margin-bottom: 15px;
+      font-size: 27px;
+      line-height: 26px;
+      color: #fff;
+    }
+
+    .event-card__description {
+      margin: 0;
+      font-size: 16px;
+      line-height: 25.6px;
+      color: #fff;
+    }
+
+    /* Review Container Parent Styles */
+
+    .review__inner {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .review__container {
+      display: flex;
+      max-width: 100%;
+    }
+
+    .review__image {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+    }
+
+    .review__content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding-left: 30px;
+      max-width: 100%;
+    }
+
+    .review__content-inner {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 15px;
+    }
+
+    .review__header {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 20px;
+    }
+
+    .review__label {
+      background-color: #045c40;
+      padding: 5px 10px;
+    }
+
+    .review__category {
+      position: relative;
+      letter-spacing: 1px;
+      line-height: 1.4;
+      text-transform: uppercase;
+      color: #fff;
+      font-size: 11px;
+    }
+
+    .review__title {
+      margin: 0;
+      position: relative;
+      font-size: 26px;
+      line-height: 1.4;
+      text-transform: capitalize;
+      font-weight: 700;
+      font-family: inherit;
+      color: #222;
+    }
+
+    .review__description {
+      position: relative;
+      font-size: 16px;
+      line-height: 1.6;
+      font-family: "Roboto", sans-serif;
+      color: rgba(0, 0, 0, 0.6);
+    }
+
+    @media screen and (max-width: 825px) {
+      .review__title {
+        font-size: 21px;
+        line-height: 1.38;
+      }
+    }
+
+    @media screen and (max-width: 450px) {
+      .review__title {
+        font-size: 19px;
+        line-height: 1.42;
+      }
+    }
+
+    /* Destination Guides Styles */
+
+    .destination-guides__inner {
+      display: flex;
+      gap: 30px;
+    }
+
+    .destination-guides__content {
+      flex: 1;
+    }
+
+    .destination-guides__image-wrapper {
+      flex: 1;
+    }
+
+    .destination-guides__image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .destination-guides__tag {
+      display: inline-flex;
+      margin-bottom: 15px;
+      padding: 5px 10px;
+      background-color: #045c40;
+    }
+
+    .destination-guides__tag-text {
+      font-size: 11px;
+      line-height: 1.4;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #fff;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .destination-guides__list {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+
+    .destination-article {
+      display: flex;
+      gap: 15px;
+      flex-direction: column;
+    }
+
+    .destination-article__image-wrapper {
+      flex-shrink: 0;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    .destination-article__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .destination-article__content {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .destination-article__title {
+      font-size: 20px;
+      line-height: 1.4;
+      font-weight: 700;
+      color: #000;
+      font-family: "Montserrat", sans-serif;
+      margin: 0;
+    }
+
+    .destination-article__description {
+      font-size: 16px;
+      line-height: 1.6;
+      color: rgba(0, 0, 0, 0.6);
+      font-family: "Roboto", sans-serif;
+      margin: 0;
+    }
+
+    .destination-article__link {
+      font-size: 13px;
+      line-height: 1.43;
+      color: #222;
+      text-decoration: underline;
+      opacity: 0.8;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .destination-article__top {
+      display: flex;
+      gap: 15px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .destination-article {
+        flex-direction: column;
+      }
+
+      .destination-article__image-wrapper {
+        width: 100%;
+        height: 200px;
+        border-radius: 0;
+      }
+    }
+
+    /* Footer Styles */
+    .footer {
+      background-color: #222;
+      padding: 40px 0;
+      font-size: 14px;
+    }
+
+    .footer__inner {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 60px;
+      max-width: 100%;
+    }
+
+    .footer__info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      width: 100%;
+    }
+
+    .footer__logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo__image {
+      height: 32px;
+      width: auto;
+    }
+
+    .footer__links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer__link {
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .footer__social {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .footer__social-icon {
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+    }
+
+    .footer__copyright {
+      position: relative;
+      line-height: 20px;
+      font-family: Roboto;
+      color: rgba(255, 255, 255, 0.7);
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media screen and (max-width: 1250px) {
+      .footer__info {
+        flex-wrap: wrap;
+      }
+
+      .footer__content {
+        gap: 30px;
+      }
+    }
+
+    @media screen and (max-width: 825px) {
+      .footer__links {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
   <body>
     <header class="header">
-      <div class="primary-header">
-        <a href="#">
-          <img
-            class="logo-icon"
-            loading="lazy"
-            alt=""
-            src="./public/logo.svg" />
-        </a>
-        <div class="edition-picker">
-          <img
-            class="united-kingdom-1-icon"
-            alt=""
-            src="./public/unitedkingdom-1.svg" />
-
-          <div class="uk-edition">UK EDITION</div>
-        </div>
-      </div>
-      <div class="primary-navigation">
-        <div class="magazine-icon">
-          <div class="uk-edition">
-            <a href="/">magazine</a>
+      <div class="container">
+        <div class="header__inner">
+          <div class="header__top">
+            <a href="/" class="header__logo">
+              <img
+                class="header__logo-img"
+                alt="Site Logo"
+                src="./public/logo.svg" />
+            </a>
+            <div class="lang-switcher">
+              <img
+                class="lang-switcher__icon"
+                alt="UK flag"
+                src="./public/unitedkingdom-1.svg" />
+              <span class="lang-switcher__text">UK EDITION</span>
+            </div>
           </div>
-          <img class="icon" alt="" src="./public/icon.svg" />
-        </div>
-        <div class="magazine-icon">
-          <div class="inspiration">
-            <a href="/"> Inspiration </a>
-          </div>
-        </div>
-        <div class="magazine-icon">
-          <div class="uk-edition"><a href="/"> Destinations</a></div>
-        </div>
-        <div class="magazine-icon">
-          <div class="uk-edition"><a href="/">Places To Stay</a></div>
-        </div>
-        <div class="navigation-links3">
-          <div class="uk-edition"><a href="/">Style & Culture</a></div>
-        </div>
-        <div class="navigation-links3">
-          <div class="uk-edition"><a href="/">FOOD AND DRINK</a></div>
-        </div>
-        <div class="navigation-links5">
-          <div class="uk-edition"><a href="/">Wellness & Spas</a></div>
-        </div>
-        <div class="navigation-links3">
-          <div class="news-advice"><a href="/">News & Advice</a></div>
+          <nav class="main-nav">
+            <ul class="main-nav__list">
+              <li class="main-nav__item">
+                <a href="/" class="main-nav__link">
+                  <span>Magazine</span>
+                  <img class="main-nav__icon" alt="" src="./public/icon.svg" />
+                </a>
+              </li>
+              <li class="main-nav__item">
+                <a href="/" class="main-nav__link">Inspiration</a>
+              </li>
+              <li class="main-nav__item">
+                <a href="/" class="main-nav__link">Destinations</a>
+              </li>
+              <li class="main-nav__item">
+                <a href="/" class="main-nav__link">Places To Stay</a>
+              </li>
+              <li class="main-nav__item">
+                <a href="/" class="main-nav__link">Style & Culture</a>
+              </li>
+              <li class="main-nav__item">
+                <a href="/" class="main-nav__link">Food and Drink</a>
+              </li>
+              <li class="main-nav__item">
+                <a href="/" class="main-nav__link">Wellness & Spas</a>
+              </li>
+              <li class="main-nav__item">
+                <a href="/" class="main-nav__link">News & Advice</a>
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
     </header>
-    <div class="home">
-      <div class="quote-and-image">
-        <div class="quote-container">
-          <img
-            class="quote-background-icon"
-            loading="lazy"
-            alt=""
-            src="./public/rectangle-424@2x.png" />
+    <main>
+      <div class="quote-collage">
+        <div class="container">
+          <div class="quote-collage">
+            <div class="quote-cards">
+              <article class="quote-card">
+                <img
+                  class="quote-card__image"
+                  loading="lazy"
+                  alt="Quote background"
+                  src="./public/rectangle-424@2x.png" />
+                <div class="quote-card__content">
+                  <h3 class="quote-card__title">
+                    Don't Let Yesterday Take Up Too Much Of Today
+                  </h3>
+                  <p class="quote-card__text">
+                    Met to launch on the manufacturer's new A330neo aircraft in
+                    2017, it's offering lot...
+                  </p>
+                  <a href="#" class="view-more">View More</a>
+                </div>
+              </article>
 
-          <div class="don12-let-yesterday-take-up-to-parent">
-            <b class="don12-let-yesterday"
-              >Don12 Let Yesterday Take Up Too Much Of Today</b
-            >
-            <div class="met-to-launch">
-              Met to launch on the manufacturer's new A330neo aircraft in 2017,
-              it's offering lot...
-            </div>
-            <div class="link">
-              <a class="view-more" href="/">View More</a>
-            </div>
-          </div>
-          <div class="image-quote-background-parent">
-            <img
-              class="image-quote-background"
-              loading="lazy"
-              alt=""
-              src="./public/rectangle-425@2x.png" />
+              <article class="quote-card">
+                <img
+                  class="quote-card__image"
+                  loading="lazy"
+                  alt="Quote background"
+                  src="./public/rectangle-425@2x.png" />
+                <div class="quote-card__content">
+                  <h3 class="quote-card__title">
+                    Don't Let Yesterday Take Up Too Much Of Today
+                  </h3>
+                  <p class="quote-card__text">
+                    Met to launch on the manufacturer's new A330neo aircraft in
+                    2017, it's offering lot...
+                  </p>
+                  <a href="#" class="view-more">View More</a>
+                </div>
+              </article>
 
-            <div class="dont-let-yesterday-take-up-to-parent">
-              <b class="don12-let-yesterday"
-                >Don’t Let Yesterday Take Up Too Much Of Today</b
-              >
-              <div class="met-to-launch">
-                Met to launch on the manufacturer's new A330neo aircraft in
-                2017, it's offering lot...
-              </div>
-              <div class="link">
-                <a class="view-more" href="/">View More</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="single-quote-content-wrapper">
-          <div class="single-quote-content">
-            <img
-              class="single-quote-background"
-              loading="lazy"
-              alt=""
-              src="./public/rectangle-511@2x.png" />
+              <article class="quote-card">
+                <img
+                  class="quote-card__image"
+                  loading="lazy"
+                  alt="Quote background"
+                  src="./public/rectangle-511@2x.png" />
+                <div class="quote-card__content">
+                  <h3 class="quote-card__title">
+                    Don't Let Yesterday Take Up Too Much Of Today
+                  </h3>
+                  <p class="quote-card__text">
+                    Met to launch on the manufacturer's new A330neo aircraft in
+                    2017, it's offering lot...
+                  </p>
+                  <a href="#" class="view-more">View More</a>
+                </div>
+              </article>
 
-            <div class="dont-let-yesterday-take-up-to-parent">
-              <b class="don12-let-yesterday"
-                >Don’t Let Yesterday Take Up Too Much Of Today</b
-              >
-              <div class="met-to-launch">
-                Met to launch on the manufacturer's new A330neo aircraft in
-                2017, it's offering lot...
-              </div>
-              <div class="link">
-                <a class="view-more" href="/">View More</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="quote-container">
-          <img
-            class="image-quote-background"
-            alt=""
-            src="./public/rectangle-425-1@2x.png" />
+              <article class="quote-card">
+                <img
+                  class="quote-card__image"
+                  alt="Quote background"
+                  src="./public/rectangle-425-1@2x.png" />
+                <div class="quote-card__content">
+                  <h3 class="quote-card__title">
+                    Don't Let Yesterday Take Up Too Much Of Today
+                  </h3>
+                  <p class="quote-card__text">
+                    Met to launch on the manufacturer's new A330neo aircraft in
+                    2017, it's offering lot...
+                  </p>
+                  <a href="#" class="view-more">View More</a>
+                </div>
+              </article>
 
-          <div class="don12-let-yesterday-take-up-to-parent">
-            <b class="don12-let-yesterday"
-              >Don’t Let Yesterday Take Up Too Much Of Today</b
-            >
-            <div class="met-to-launch">
-              Met to launch on the manufacturer's new A330neo aircraft in 2017,
-              it's offering lot...
-            </div>
-            <div class="link">
-              <a class="view-more" href="/">View More</a>
-            </div>
-          </div>
-          <img
-            class="quote-background-icon"
-            alt=""
-            src="./public/rectangle-424-1@2x.png" />
-
-          <div class="dont-let-yesterday-take-up-to-parent">
-            <b class="don12-let-yesterday"
-              >Don’t Let Yesterday Take Up Too Much Of Today</b
-            >
-            <div class="met-to-launch">
-              Met to launch on the manufacturer's new A330neo aircraft in 2017,
-              it's offering lot...
-            </div>
-            <div class="link">
-              <a class="view-more" href="/">View More</a>
+              <article class="quote-card">
+                <img
+                  class="quote-card__image"
+                  alt="Quote background"
+                  src="./public/rectangle-424-1@2x.png" />
+                <div class="quote-card__content">
+                  <h3 class="quote-card__title">
+                    Don't Let Yesterday Take Up Too Much Of Today
+                  </h3>
+                  <p class="quote-card__text">
+                    Met to launch on the manufacturer's new A330neo aircraft in
+                    2017, it's offering lot...
+                  </p>
+                  <a href="#" class="view-more">View More</a>
+                </div>
+              </article>
             </div>
           </div>
         </div>
       </div>
-      <div class="footer-wrapper">
-        <div class="footer">
-          <div class="subscription">
-            <div class="our-editors-picks">
+      <div class="subscription">
+        <div class="container">
+          <div class="subscription__inner">
+            <p class="subscription__text">
               Our editors` picks of the latest and greatest in travel -
               delivered to your inbox daily
-            </div>
-            <button class="btn">
-              <a class="subscribe">Subscribe</a>
+            </p>
+            <button class="subscription__button" type="button">
+              Subscribe
             </button>
           </div>
         </div>
       </div>
-      <div class="trending-content-parent">
-        <div class="trending-content">
-          <div class="trending-header">
-            <i class="look-inside">Look inside</i>
-            <div class="trending-label">
-              <h1 class="heading-4">December 2024 Edition</h1>
+      <div class="magazine">
+        <div class="container">
+          <div class="magazine__inner">
+            <div class="magazine__header">
+              <div class="magazine__intro">
+                <i class="magazine__label">Look inside</i>
+                <h1 class="magazine__title">December 2024 Edition</h1>
+              </div>
+              <div class="magazine__description">
+                <span class="magazine__divider"></span>
+                <p class="magazine__text">
+                  Uncover the charm and excitement of city life with our urban
+                  travel guide.
+                </p>
+              </div>
             </div>
-          </div>
-          <div class="vector-parent">
-            <img class="frame-item" alt="" src="./public/vector-1.svg" />
 
-            <div class="uncover-the-charm">
-              Uncover the charm and excitement of city life with our urban
-              travel guide.
-            </div>
-          </div>
-        </div>
-        <div class="featured-image">
-          <div class="featured-image-content">
-            <div class="image-container">
-              <div class="featured-image-placeholder"></div>
-              <div class="image-description">
-                <b class="b">2024</b>
-                <b class="december">December</b>
-                <div class="lorem-ipsum-dolor">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor
+            <div class="magazine__content">
+              <article class="cover">
+                <div class="cover__media">
+                  <img
+                    class="cover__image"
+                    src="./public/image-container@3x.png"
+                    alt="December 2024 Edition Cover" />
+                  <div class="cover__overlay"></div>
+                </div>
+
+                <div class="cover__info">
+                  <time class="cover__date">
+                    <span class="cover__year">2024</span>
+                    <span class="cover__month">December</span>
+                  </time>
+                  <p class="cover__description">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor
+                  </p>
+                </div>
+              </article>
+
+              <div class="featured">
+                <div class="featured__top">
+                  <span class="featured__tag">City Breaks</span>
+                  <h2 class="featured__title">
+                    City Breaks: Discover the World's Most Vibrant Urban
+                    Destinations
+                  </h2>
+                  <p class="featured__description">
+                    Explore the world's most vibrant cities with our August
+                    edition focusing on city breaks. Whether it's a weekend
+                    getaway or an extended stay, discover the urban landscapes
+                    that offer rich history, culture, and cuisine
+                  </p>
+                </div>
+
+                <div class="featured__stories">
+                  <article class="story">
+                    <img
+                      class="story__image"
+                      src="./public/image-2024-07-18t13-27-47-171z@2x.png"
+                      alt="Story thumbnail"
+                      loading="lazy" />
+                    <div class="story__content">
+                      <span class="story__label">Current Main Story</span>
+                      <h3 class="story__title">
+                        The World's Most Romantic Retreats: February Edition
+                      </h3>
+                    </div>
+                  </article>
+
+                  <article class="story">
+                    <img
+                      class="story__image"
+                      src="./public/image-2024-07-18t13-27-47-171z@2x.png"
+                      alt="Story thumbnail"
+                      loading="lazy" />
+                    <div class="story__content">
+                      <span class="story__label">Current Editorial Story</span>
+                      <h3 class="story__title">
+                        Travel for Two: Balancing Interests in Romantic Getaways
+                      </h3>
+                    </div>
+                  </article>
                 </div>
               </div>
             </div>
           </div>
-          <div class="image-and-city-break">
-            <div class="city-break-description">
-              <div class="tag">
-                <div class="city-breaks">City Breaks</div>
-              </div>
-              <h1 class="city-breaks-discover">
-                City Breaks: Discover the World`s Most Vibrant Urban
-                Destinations
-              </h1>
-              <div class="explore-the-worlds">
-                Explore the world’s most vibrant cities with our August edition
-                focusing on city breaks. Whether it’s a weekend getaway or an
-                extended stay, discover the urban landscapes that offer rich
-                history, culture, and cuisine
-              </div>
-            </div>
-            <div class="city-break-image">
-              <img
-                class="image-2024-07-18t13-27-47-171z-icon"
-                loading="lazy"
-                alt=""
-                src="./public/image-2024-07-18t13-27-47-171z@2x.png" />
-
-              <div class="current-main-story-parent">
-                <div class="current-main-story">current Main Story</div>
-                <b class="the-worlds-most"
-                  >The World's Most Romantic Retreats: February Edition</b
-                >
-              </div>
-            </div>
-            <div class="city-break-image1">
-              <img
-                class="image-2024-07-18t13-27-47-171z-icon"
-                loading="lazy"
-                alt=""
-                src="./public/image-2024-07-18t13-27-47-171z@2x.png" />
-
-              <div class="current-editorial-story-parent">
-                <div class="current-main-story">current Editorial Story</div>
-                <b class="the-worlds-most"
-                  >Travel for Two: Balancing Interests in Romantic Getaways</b
-                >
-              </div>
-            </div>
-          </div>
         </div>
       </div>
-      <div class="single-panel">
-        <div class="highlight-content">
-          <div class="article-heading-two">
-            <div class="city-breaks">Main Story</div>
-          </div>
-          <h1 class="heading-41">
-            The World's Most Romantic Retreats: February Edition
-          </h1>
-          <div class="horizontal-divider"></div>
-          <div class="explore-the-ultimate">
-            Explore the ultimate romantic destinations for February 2024, from
-            idyllic island getaways to luxurious city retreats.
-          </div>
-          <div class="link">
-            <a class="view-more" href="/">View More</a>
-          </div>
-        </div>
-        <img
-          class="single-panel-child"
-          loading="lazy"
-          alt=""
-          src="./public/frame-2222@2x.png" />
-      </div>
-      <div class="onelargefoursmallpanels">
-        <div class="main-photo-wrapper">
-          <img
-            class="main-photo-icon"
-            loading="lazy"
-            alt=""
-            src="./public/main-photo@2x.png" />
-        </div>
-        <div class="frame-parent">
-          <div class="epic-days-through-delphi-parent">
-            <h2 class="epic-days-through">4 Epic Days through Delphi</h2>
-            <div class="horizontal-divider"></div>
-            <div class="an-unforgettable-8-day">
-              An unforgettable 8-day adventure in Delphi, Greece, uncovering
-              ancient myths, historical wonders, and breathtaking views with
-              friends
-            </div>
-            <div class="link">
-              <a class="view-more" href="/">View More</a>
-            </div>
-          </div>
-          <div class="promo-panels">
-            <div class="top-left-promo">
-              <img
-                class="image-2024-07-18t13-23-52-553z-icon"
-                alt=""
-                src="./public/image-2024-07-18t13-23-52-553z@2x.png" />
+      <div class="article-panel">
+        <div class="container">
+          <div class="article-panel__inner">
+            <div class="article-panel__content">
+              <span class="article-panel__category">Main Story</span>
 
-              <div class="current-event-guide-parent">
-                <div class="current-event-guide">current event guide</div>
-                <b class="romantic-spa-retreats"
-                  >Romantic Spa Retreats for Two</b
-                >
-              </div>
-            </div>
-            <div class="top-right-promo">
-              <img
-                class="image-2024-07-18t13-23-52-553z-icon"
-                alt=""
-                src="./public/image-2024-07-18t13-23-52-553z@2x.png" />
+              <article class="article-panel__body">
+                <h2 class="article-panel__title">
+                  The World's Most Romantic Retreats: February Edition
+                </h2>
 
-              <div class="current-event-guide-parent">
-                <div class="current-event-guide">current event guide</div>
-                <b class="romantic-spa-retreats"
-                  >Romantic Spa Retreats for Two</b
-                >
-              </div>
-            </div>
-            <div class="top-left-promo">
-              <img
-                class="image-2024-07-18t13-23-52-553z-icon"
-                alt=""
-                src="./public/image-2024-07-18t13-23-52-553z@2x.png" />
+                <hr class="article-panel__divider" />
 
-              <div class="current-event-guide-parent">
-                <div class="current-event-guide">current event guide</div>
-                <b class="romantic-spa-retreats"
-                  >Romantic Spa Retreats for Two</b
-                >
-              </div>
-            </div>
-            <div class="top-left-promo">
-              <img
-                class="image-2024-07-18t13-23-52-553z-icon"
-                alt=""
-                src="./public/image-2024-07-18t13-23-52-553z@2x.png" />
+                <p class="article-panel__description">
+                  Explore the ultimate romantic destinations for February 2024,
+                  from idyllic island getaways to luxurious city retreats.
+                </p>
 
-              <div class="current-event-guide-parent">
-                <div class="current-event-guide">current event guide</div>
-                <b class="romantic-spa-retreats"
-                  >Romantic Spa Retreats for Two</b
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="imagecollage">
-        <div class="image-rows">
-          <img
-            class="image-set-one"
-            loading="lazy"
-            alt=""
-            src="./public/frame-2245@2x.png" />
-
-          <div class="image-set-two">
-            <img
-              class="image-set-two-child"
-              loading="lazy"
-              alt=""
-              src="./public/frame-2246@2x.png" />
-
-            <img
-              class="image-set-two-child"
-              loading="lazy"
-              alt=""
-              src="./public/frame-2247@2x.png" />
-          </div>
-        </div>
-        <div class="image-rows1">
-          <img
-            class="image-rows-child"
-            loading="lazy"
-            alt=""
-            src="./public/frame-2244@2x.png" />
-
-          <a class="view-more7">View More</a>
-        </div>
-        <div class="image-rows2">
-          <div class="frame-group">
-            <img
-              class="image-set-two-child"
-              alt=""
-              src="./public/frame-2246-1@2x.png" />
-
-            <img
-              class="image-set-two-child"
-              alt=""
-              src="./public/frame-2247-1@2x.png" />
-          </div>
-          <img
-            class="image-set-one"
-            alt=""
-            src="./public/frame-2245-1@2x.png" />
-        </div>
-      </div>
-      <div class="recent-editorial-story">
-        <div class="dont-let-yesterday-take-up-to-parent">
-          <img
-            class="editorial-set-one"
-            loading="lazy"
-            alt=""
-            src="./public/frame-1778@2x.png" />
-
-          <div class="trending-content">
-            <div class="editorial-set-two">
-              <div class="city-breaks">recent Editorial Story</div>
-            </div>
-            <h2 class="cultural-etiquette-for">
-              Travel for Two: Balancing Interests in Romantic Getaways
-            </h2>
-            <div class="advice-on-planning">
-              Advice on planning trips that cater to both partners’ interests
-              without compromise.
-            </div>
-            <div class="link7">
-              <a class="view-more8">View More</a>
-            </div>
-          </div>
-        </div>
-        <div class="editorial-rows1">
-          <img
-            class="editorial-set-one"
-            loading="lazy"
-            alt=""
-            src="./public/frame-1779@2x.png" />
-
-          <div class="frame-container">
-            <div class="recent-editorial-story-wrapper">
-              <div class="city-breaks">recent Editorial Story</div>
-            </div>
-            <h2 class="a-history-of">
-              A History of Romance in Iconic Destinations
-            </h2>
-          </div>
-          <div class="explore-how-certain-destinatio-parent">
-            <div class="explore-how-certain">
-              Explore how certain destinations became synonymous with romance,
-              from Venice to the Taj Mahal.
-            </div>
-            <div class="link8">
-              <a class="view-more9">View More</a>
-            </div>
-          </div>
-        </div>
-        <div class="dont-let-yesterday-take-up-to-parent">
-          <img
-            class="editorial-set-one"
-            loading="lazy"
-            alt=""
-            src="./public/frame-1780@2x.png" />
-
-          <div class="trending-content">
-            <div class="editorial-set-two">
-              <div class="city-breaks">recent Editorial Story</div>
-            </div>
-            <h2 class="cultural-etiquette-for">
-              Cultural Etiquette for Romantic Travel Abroad
-            </h2>
-            <div class="advice-on-planning">
-              A guide to understanding cultural norms while traveling as a
-              couple, from public displays of affection to gift-giving
-              traditions.
-            </div>
-            <div class="link9">
-              <a class="view-more9">View More</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="threepanelscollage">
-        <div class="articles-1">
-          <img
-            class="image-rows-child"
-            loading="lazy"
-            alt=""
-            src="./public/frame-2248@2x.png" />
-
-          <div class="trending-header">
-            <div class="article-heading-one">
-              <div class="city-breaks">recent Listicle</div>
-            </div>
-            <div class="article-description-one">
-              <div class="article-link-one">
-                <h3 class="romantic-experiences-to">
-                  10 Romantic Experiences to Try This February
-                </h3>
-                <div class="a-roundup-of">
-                  A roundup of unique experiences, from hot air balloon rides to
-                  candlelit dinners in caves.
+                <div class="article-panel__action">
+                  <a href="#" class="view-more">View More</a>
                 </div>
-                <a class="view-more11">View More</a>
-              </div>
+              </article>
             </div>
-          </div>
-        </div>
-        <div class="articles-2">
-          <img
-            class="article-image-two"
-            loading="lazy"
-            alt=""
-            src="./public/rectangle-514@2x.png" />
 
-          <div class="image-quote-background-parent">
-            <div class="article-heading-two">
-              <div class="city-breaks">recent Listicle</div>
-            </div>
-            <b class="must-pack-items-for"
-              >5 Must-Pack Items for a Romantic Escape</b
-            >
-            <div class="a-roundup-of1">
-              A roundup of unique experiences, from hot air balloon rides to
-              candlelit dinners in caves."
-            </div>
-            <div class="link">
-              <a class="view-more" href="/">View More</a>
-            </div>
+            <figure class="article-panel__figure">
+              <img
+                class="article-panel__image"
+                src="./public/frame-2222@2x.png"
+                alt="Romantic retreats featured image"
+                loading="lazy" />
+            </figure>
           </div>
-        </div>
-        <div class="articles-3">
-          <div class="article-content-three">
-            <b class="don12-let-yesterday"
-              >10 Romantic Experiences to Try This February</b
-            >
-            <div class="a-roundup-of1">
-              A roundup of unique experiences, from hot air balloon rides to
-              candlelit dinners in caves.
-            </div>
-            <div class="view-more13">View More</div>
-            <div class="article-heading-three">
-              <div class="city-breaks">recent Listicle</div>
-            </div>
-          </div>
-          <img
-            class="article-image-three"
-            loading="lazy"
-            alt=""
-            src="./public/rectangle-515@2x.png" />
         </div>
       </div>
-      <div class="onelargefoursmallpanels">
-        <div class="main-photo-wrapper">
-          <img
-            class="main-photo-icon"
-            loading="lazy"
-            alt=""
-            src="./public/image@2x.png" />
-        </div>
-        <div class="frame-parent">
-          <div class="epic-days-through-delphi-parent">
-            <h2 class="epic-days-through">4 Epic Days through Delphi</h2>
-            <div class="horizontal-divider"></div>
-            <div class="an-unforgettable-8-day">
-              An unforgettable 8-day adventure in Delphi, Greece, uncovering
-              ancient myths, historical wonders, and breathtaking views with
-              friends
-            </div>
-            <div class="link">
-              <a class="view-more" href="/">View More</a>
-            </div>
-          </div>
-          <div class="promo-panels">
-            <div class="top-left-promo">
+      <div class="one-large-four-small">
+        <div class="container">
+          <div class="one-large-four-small__inner">
+            <div class="one-large-four-small__main">
               <img
-                class="image-2024-07-18t13-23-52-553z-icon"
-                alt=""
-                src="./public/image-2024-07-18t13-23-52-553z@2x.png" />
-
-              <div class="current-event-guide-parent">
-                <div class="current-event-guide">current event guide</div>
-                <b class="romantic-spa-retreats"
-                  >Romantic Spa Retreats for Two</b
-                >
-              </div>
+                class="one-large-four-small__image"
+                loading="lazy"
+                alt="Main photo"
+                src="./public/main-photo@2x.png" />
             </div>
-            <div class="top-right-promo">
-              <img
-                class="image-2024-07-18t13-23-52-553z-icon"
-                alt=""
-                src="./public/image-2024-07-18t13-23-52-553z@2x.png" />
+            <div class="one-large-four-small__content">
+              <article class="one-large-four-small__article">
+                <h2 class="one-large-four-small__title">
+                  4 Epic Days through Delphi
+                </h2>
+                <hr class="one-large-four-small__divider" />
+                <p class="one-large-four-small__description">
+                  An unforgettable 8-day adventure in Delphi, Greece, uncovering
+                  ancient myths, historical wonders, and breathtaking views with
+                  friends
+                </p>
+                <a href="#" class="view-more">View More</a>
+              </article>
 
-              <div class="current-event-guide-parent">
-                <div class="current-event-guide">current event guide</div>
-                <b class="romantic-spa-retreats"
-                  >Romantic Spa Retreats for Two</b
-                >
-              </div>
-            </div>
-            <div class="top-left-promo">
-              <img
-                class="image-2024-07-18t13-23-52-553z-icon"
-                alt=""
-                src="./public/image-2024-07-18t13-23-52-553z@2x.png" />
+              <div class="one-large-four-small__grid">
+                <article class="promo-card">
+                  <img
+                    class="promo-card__image"
+                    alt="Promo image"
+                    src="./public/image-2024-07-18t13-23-52-553z@2x.png" />
+                  <div class="promo-card__content">
+                    <span class="promo-card__label">current event guide</span>
+                    <h3 class="promo-card__title">
+                      Romantic Spa Retreats for Two
+                    </h3>
+                  </div>
+                </article>
 
-              <div class="current-event-guide-parent">
-                <div class="current-event-guide">current event guide</div>
-                <b class="romantic-spa-retreats"
-                  >Romantic Spa Retreats for Two</b
-                >
-              </div>
-            </div>
-            <div class="top-left-promo">
-              <img
-                class="image-2024-07-18t13-23-52-553z-icon"
-                alt=""
-                src="./public/image-2024-07-18t13-23-52-553z@2x.png" />
+                <article class="promo-card">
+                  <img
+                    class="promo-card__image"
+                    alt="Promo image"
+                    src="./public/image-2024-07-18t13-23-52-553z@2x.png" />
+                  <div class="promo-card__content">
+                    <span class="promo-card__label">current event guide</span>
+                    <h3 class="promo-card__title">
+                      Romantic Spa Retreats for Two
+                    </h3>
+                  </div>
+                </article>
 
-              <div class="current-event-guide-parent">
-                <div class="current-event-guide">current event guide</div>
-                <b class="romantic-spa-retreats"
-                  >Romantic Spa Retreats for Two</b
-                >
+                <article class="promo-card">
+                  <img
+                    class="promo-card__image"
+                    alt="Promo image"
+                    src="./public/image-2024-07-18t13-23-52-553z@2x.png" />
+                  <div class="promo-card__content">
+                    <span class="promo-card__label">current event guide</span>
+                    <h3 class="promo-card__title">
+                      Romantic Spa Retreats for Two
+                    </h3>
+                  </div>
+                </article>
+
+                <article class="promo-card">
+                  <img
+                    class="promo-card__image"
+                    alt="Promo image"
+                    src="./public/image-2024-07-18t13-23-52-553z@2x.png" />
+                  <div class="promo-card__content">
+                    <span class="promo-card__label">current event guide</span>
+                    <h3 class="promo-card__title">
+                      Romantic Spa Retreats for Two
+                    </h3>
+                  </div>
+                </article>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="threepanelshorizontal">
-        <div class="article-1">
-          <div class="destination-headings">
-            <div class="city-breaks">Recent Destination</div>
-          </div>
-          <div class="destination-content">
-            <img
-              class="destination-images-icon"
-              alt=""
-              src="./public/rectangle-424-2@2x.png" />
-
-            <div class="destination-descriptions">
-              <b class="don12-let-yesterday">A Romantic Weekend in Santorini</b>
-              <div class="your-guide-to">
-                Your guide to a perfect couple’s getaway on the enchanting
-                island of Santorini.
-              </div>
-              <a class="view-more15">View More</a>
-            </div>
-          </div>
-        </div>
-        <div class="article-1">
-          <div class="recent-destination-wrapper">
-            <div class="city-breaks">Recent Destination</div>
-          </div>
-          <div class="destination-content">
-            <img
-              class="destination-images-icon"
-              alt=""
-              src="./public/rectangle-424-3@2x.png" />
-
-            <div class="destination-descriptions">
-              <b class="don12-let-yesterday">A Romantic Weekend in Santorini</b>
-              <div class="your-guide-to">
-                Your guide to a perfect couple’s getaway on the enchanting
-                island of Santorini.
-              </div>
-              <a class="view-more15">View More</a>
-            </div>
-          </div>
-        </div>
-        <div class="article-1">
-          <div class="recent-destination-wrapper">
-            <div class="city-breaks">Recent Destination</div>
-          </div>
-          <div class="destination-content">
-            <img
-              class="destination-images-icon"
-              alt=""
-              src="./public/rectangle-424-4@2x.png" />
-
-            <div class="destination-descriptions">
-              <b class="don12-let-yesterday">A Romantic Weekend in Santorini</b>
-              <div class="your-guide-to">
-                Your guide to a perfect couple’s getaway on the enchanting
-                island of Santorini.
-              </div>
-              <a class="view-more15">View More</a>
-            </div>
+      <div class="gallery">
+        <div class="container">
+          <div class="gallery__inner">
+            <ul class="gallery__list">
+              <li class="gallery__item">
+                <img
+                  loading="lazy"
+                  alt="Gallery image"
+                  src="./public/frame-2245@2x.png" />
+              </li>
+              <li class="gallery__item">
+                <img
+                  loading="lazy"
+                  alt="Gallery image"
+                  src="./public/frame-2246@2x.png" />
+              </li>
+              <li class="gallery__item">
+                <img
+                  loading="lazy"
+                  alt="Gallery image"
+                  src="./public/frame-2247@2x.png" />
+              </li>
+              <li class="gallery__item">
+                <img
+                  loading="lazy"
+                  alt="Gallery image"
+                  src="./public/frame-2244@2x.png" />
+                <a href="/">View more</a>
+              </li>
+              <li class="gallery__item">
+                <img alt="Gallery image" src="./public/frame-2246-1@2x.png" />
+              </li>
+              <li class="gallery__item">
+                <img alt="Gallery image" src="./public/frame-2247-1@2x.png" />
+              </li>
+              <li class="gallery__item">
+                <img alt="Gallery image" src="./public/frame-2245-1@2x.png" />
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-      <div class="event-pair-parent">
-        <div class="event-pair">
-          <div class="article-top-left">
-            <div class="event-background">
-              <div class="gradient"></div>
-            </div>
-            <div class="event-type-wrapper">
-              <div class="event-type">
-                <div class="city-breaks">Recent Local Event Guide</div>
-              </div>
-            </div>
-            <b class="romantic-spa-retreats8">Romantic Spa Retreats for Two</b>
-            <div class="time-march">
-              Relax and rejuvenate together at these top wellness destinations.
-            </div>
-          </div>
-          <div class="article-top-left">
-            <div class="event-background1">
-              <div class="gradient"></div>
-            </div>
-            <div class="event-type-wrapper">
-              <div class="event-type">
-                <div class="city-breaks">Recent Local Event Guide</div>
-              </div>
-            </div>
-            <b class="romantic-spa-retreats8">Romantic Spa Retreats for Two</b>
-            <div class="time-march">
-              Relax and rejuvenate together at these top wellness destinations.
-            </div>
-          </div>
-        </div>
-        <div class="event-pair">
-          <div class="article-top-left">
-            <div class="gradient-wrapper">
-              <div class="gradient"></div>
-            </div>
-            <div class="event-type-wrapper">
-              <div class="event-type">
-                <div class="city-breaks">Recent Local Event Guide</div>
-              </div>
-            </div>
-            <b class="romantic-spa-retreats8">Romantic Spa Retreats for Two</b>
-            <div class="time-march">
-              Relax and rejuvenate together at these top wellness destinations.
-            </div>
-          </div>
-          <div class="article-top-left">
-            <div class="gradient-container">
-              <div class="gradient"></div>
-            </div>
-            <div class="event-type-wrapper">
-              <div class="event-type">
-                <div class="city-breaks">Recent Local Event Guide</div>
-              </div>
-            </div>
-            <b class="romantic-spa-retreats8">Romantic Spa Retreats for Two</b>
-            <div class="time-march">
-              Relax and rejuvenate together at these top wellness destinations.
-            </div>
+      <div class="editorial">
+        <div class="container">
+          <div class="editorial__inner">
+            <ul class="editorial__list">
+              <li class="editorial__item">
+                <article class="editorial-card">
+                  <img
+                    class="editorial-card__image"
+                    loading="lazy"
+                    alt="Editorial story image"
+                    src="./public/frame-1778@2x.png" />
+
+                  <div class="editorial-card__content">
+                    <div class="tag tag--green">
+                      <span class="tag__text">recent Editorial Story</span>
+                    </div>
+                    <h2 class="editorial-card__title">
+                      Travel for Two: Balancing Interests in Romantic Getaways
+                    </h2>
+                    <p class="editorial-card__description">
+                      Advice on planning trips that cater to both partners'
+                      interests without compromise.
+                    </p>
+                    <a href="#" class="view-more">View More</a>
+                  </div>
+                </article>
+              </li>
+
+              <li class="editorial__item">
+                <article class="editorial-card">
+                  <img
+                    class="editorial-card__image"
+                    loading="lazy"
+                    alt="Editorial story image"
+                    src="./public/frame-1779@2x.png" />
+
+                  <div class="editorial-card__content">
+                    <div class="tag tag--green">
+                      <span class="tag__text">recent Editorial Story</span>
+                    </div>
+                    <h2 class="editorial-card__title">
+                      A History of Romance in Iconic Destinations
+                    </h2>
+                    <p class="editorial-card__description">
+                      Explore how certain destinations became synonymous with
+                      romance, from Venice to the Taj Mahal.
+                    </p>
+                    <a href="#" class="view-more">View More</a>
+                  </div>
+                </article>
+              </li>
+
+              <li class="editorial__item">
+                <article class="editorial-card">
+                  <img
+                    class="editorial-card__image"
+                    loading="lazy"
+                    alt="Editorial story image"
+                    src="./public/frame-1780@2x.png" />
+
+                  <div class="editorial-card__content">
+                    <div class="tag tag--green">
+                      <span class="tag__text">recent Editorial Story</span>
+                    </div>
+                    <h2 class="editorial-card__title">
+                      Cultural Etiquette for Romantic Travel Abroad
+                    </h2>
+                    <p class="editorial-card__description">
+                      A guide to understanding cultural norms while traveling as
+                      a couple, from public displays of affection to gift-giving
+                      traditions.
+                    </p>
+                    <a href="#" class="view-more">View More</a>
+                  </div>
+                </article>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-      <div class="review-container-parent">
-        <div class="review-container">
-          <img
-            class="image-2024-07-18t13-23-52-553z-icon8"
-            alt=""
-            src="./public/image-2024-07-18t13-23-52-553z1@2x.png" />
-        </div>
-        <div class="frame-wrapper">
-          <div class="frame-parent3">
-            <div class="review-heading-parent">
-              <div class="recent-editorial-story-wrapper">
-                <div class="city-breaks">Recent product Review</div>
-              </div>
-              <h3 class="the-overwater-bungalow">
-                The Overwater Bungalow Experience in Bora Bora
-              </h3>
-            </div>
-            <div class="advice-on-planning">
-              A detailed review of staying in an iconic overwater bungalow, with
-              insights into service, amenities, and romantic perks
-            </div>
-            <div class="link12">
-              <a class="view-more9">View More</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="image-parent">
-        <img class="image-icon1" alt="" src="./public/image-1@2x.png" />
-
-        <div class="tag-parent">
-          <div class="tag2">
-            <div class="city-breaks">recent destination guides</div>
-          </div>
-          <div class="image-2024-07-18t13-27-47-171z-parent">
-            <img
-              class="image-2024-07-18t13-27-47-171z-icon"
-              alt=""
-              src="./public/image-2024-07-18t13-27-47-171z-1@2x.png" />
-
-            <div class="love-under-the-stars-the-best-wrapper">
-              <b class="love-under-the"
-                >Love Under the Stars: The Best Wilderness Retreats for
-                Couples</b
-              >
-            </div>
-          </div>
-          <div class="discover-remote-intimate">
-            Discover remote, intimate settings where couples can connect with
-            nature and each other, from African safari lodges to Scandinavian
-            igloos.
-          </div>
-          <div class="link-parent">
-            <div class="link13">
-              <a class="view-more" href="/">View More</a>
-            </div>
-            <div class="image-2024-07-18t13-20-54-219z-parent">
+      <div class="articles">
+        <div class="container">
+          <div class="articles__grid">
+            <article class="article-card">
               <img
-                class="image-2024-07-18t13-27-47-171z-icon"
-                alt=""
-                src="./public/image-2024-07-18t13-20-54-219z-1@2x.png" />
+                class="article-card__image"
+                loading="lazy"
+                alt="Article thumbnail"
+                src="./public/frame-2248@2x.png" />
+              <div class="article-card__content">
+                <span class="articles-label articles-label--green"
+                  >recent Listicle</span
+                >
+                <div class="article-card__body">
+                  <h3 class="article-card__title">
+                    10 Romantic Experiences to Try This February
+                  </h3>
+                  <p class="article-card__description">
+                    A roundup of unique experiences, from hot air balloon rides
+                    to candlelit dinners in caves.
+                  </p>
+                  <a href="#" class="view-more">View More</a>
+                </div>
+              </div>
+            </article>
 
-              <div class="romantic-rail-journeys-love-o-wrapper">
-                <b class="love-under-the"
-                  >Romantic Rail Journeys: Love on the Move</b
+            <article class="article-card">
+              <img
+                class="article-card__image"
+                loading="lazy"
+                alt="Article thumbnail"
+                src="./public/rectangle-514@2x.png" />
+              <div class="article-card__content">
+                <span class="articles-label articles-label--green"
+                  >recent Listicle</span
+                >
+                <div class="article-card__body">
+                  <h3 class="article-card__title">
+                    5 Must-Pack Items for a Romantic Escape
+                  </h3>
+                  <p class="article-card__description">
+                    A roundup of unique experiences, from hot air balloon rides
+                    to candlelit dinners in caves.
+                  </p>
+                  <a href="#" class="view-more">View More</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="article-card">
+              <div class="article-card__content">
+                <div class="article-card__body">
+                  <h3 class="article-card__title">
+                    10 Romantic Experiences to Try This February
+                  </h3>
+                  <p class="article-card__description">
+                    A roundup of unique experiences, from hot air balloon rides
+                    to candlelit dinners in caves.
+                  </p>
+                  <a href="#" class="view-more">View More</a>
+                </div>
+                <span class="articles-label articles-label--green"
+                  >recent Listicle</span
                 >
               </div>
-            </div>
-          </div>
-          <div class="discover-remote-intimate">
-            Dive into the magic of luxury train travel, exploring romantic rail
-            journeys across continents.
-          </div>
-          <div class="link-group">
-            <div class="link13">
-              <a class="view-more" href="/">View More</a>
-            </div>
-            <div class="image-2024-07-18t13-23-52-553z-parent">
               <img
-                class="image-2024-07-18t13-27-47-171z-icon"
-                alt=""
-                src="./public/image-2024-07-18t13-23-52-553z-8@2x.png" />
-
-              <div class="love-under-the-stars-the-best-container">
-                <b class="love-under-the"
-                  >Love Under the Stars: The Best Wilderness Retreats for
-                  Couples</b
-                >
-              </div>
-            </div>
-          </div>
-          <div class="discover-remote-intimate">
-            Discover remote, intimate settings where couples can connect with
-            nature and each other, from African safari lodges to Scandinavian
-            igloos.
-          </div>
-          <div class="link-group">
-            <div class="link13">
-              <a class="view-more" href="/">View More</a>
-            </div>
-            <div class="image-2024-07-18t13-23-52-553z-parent">
-              <img
-                class="image-2024-07-18t13-27-47-171z-icon"
-                alt=""
-                src="./public/image-2024-07-18t13-23-52-553z-8@2x.png" />
-
-              <div class="love-under-the-stars-the-best-wrapper">
-                <b class="love-under-the"
-                  >Love Under the Stars: The Best Wilderness Retreats for
-                  Couples</b
-                >
-              </div>
-            </div>
-          </div>
-          <div class="discover-remote-intimate">
-            Discover remote, intimate settings where couples can connect with
-            nature and each other, from African safari lodges to Scandinavian
-            igloos.
-          </div>
-          <div class="link">
-            <a class="view-more" href="/">View More</a>
+                class="article-card__image"
+                loading="lazy"
+                alt="Article thumbnail"
+                src="./public/rectangle-515@2x.png" />
+            </article>
           </div>
         </div>
       </div>
-      <div class="footer1">
-        <div class="footer-content">
-          <div class="footer-info">
-            <div class="logo">
+      <div class="one-large-four-small">
+        <div class="container">
+          <div class="one-large-four-small__inner">
+            <div class="one-large-four-small__main">
               <img
-                class="vector-icon"
+                class="one-large-four-small__image"
+                loading="lazy"
+                alt="Main photo"
+                src="./public/image@2x.png" />
+            </div>
+            <div class="one-large-four-small__content">
+              <article class="one-large-four-small__article">
+                <h2 class="one-large-four-small__title">
+                  4 Epic Days through Delphi
+                </h2>
+                <hr class="one-large-four-small__divider" />
+                <p class="one-large-four-small__description">
+                  An unforgettable 8-day adventure in Delphi, Greece, uncovering
+                  ancient myths, historical wonders, and breathtaking views with
+                  friends
+                </p>
+                <a href="#" class="view-more">View More</a>
+              </article>
+
+              <div class="one-large-four-small__grid">
+                <article class="promo-card">
+                  <img
+                    class="promo-card__image"
+                    alt="Promo image"
+                    src="./public/image-2024-07-18t13-23-52-553z@2x.png" />
+                  <div class="promo-card__content">
+                    <span class="promo-card__label">current event guide</span>
+                    <h3 class="promo-card__title">
+                      Romantic Spa Retreats for Two
+                    </h3>
+                  </div>
+                </article>
+
+                <article class="promo-card">
+                  <img
+                    class="promo-card__image"
+                    alt="Promo image"
+                    src="./public/image-2024-07-18t13-23-52-553z@2x.png" />
+                  <div class="promo-card__content">
+                    <span class="promo-card__label">current event guide</span>
+                    <h3 class="promo-card__title">
+                      Romantic Spa Retreats for Two
+                    </h3>
+                  </div>
+                </article>
+
+                <article class="promo-card">
+                  <img
+                    class="promo-card__image"
+                    alt="Promo image"
+                    src="./public/image-2024-07-18t13-23-52-553z@2x.png" />
+                  <div class="promo-card__content">
+                    <span class="promo-card__label">current event guide</span>
+                    <h3 class="promo-card__title">
+                      Romantic Spa Retreats for Two
+                    </h3>
+                  </div>
+                </article>
+
+                <article class="promo-card">
+                  <img
+                    class="promo-card__image"
+                    alt="Promo image"
+                    src="./public/image-2024-07-18t13-23-52-553z@2x.png" />
+                  <div class="promo-card__content">
+                    <span class="promo-card__label">current event guide</span>
+                    <h3 class="promo-card__title">
+                      Romantic Spa Retreats for Two
+                    </h3>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="three-panel">
+        <div class="container">
+          <div class="three-panel__inner">
+            <div class="three-panel__list">
+              <div class="three-panel__article">
+                <span class="three-panel__label">Recent Destination</span>
+                <div class="three-panel__content">
+                  <img
+                    class="three-panel__image"
+                    alt=""
+                    src="./public/rectangle-424-2@2x.png" />
+                  <div class="three-panel__description">
+                    <b class="three-panel__title"
+                      >A Romantic Weekend in Santorini</b
+                    >
+                    <div class="three-panel__text">
+                      Your guide to a perfect couple's getaway on the enchanting
+                      island of Santorini.
+                    </div>
+                    <a class="view-more">View More</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="three-panel__article">
+                <span class="three-panel__label">Recent Destination</span>
+                <div class="three-panel__content">
+                  <img
+                    class="three-panel__image"
+                    alt=""
+                    src="./public/rectangle-424-3@2x.png" />
+                  <div class="three-panel__description">
+                    <b class="three-panel__title"
+                      >A Romantic Weekend in Santorini</b
+                    >
+                    <div class="three-panel__text">
+                      Your guide to a perfect couple's getaway on the enchanting
+                      island of Santorini.
+                    </div>
+                    <a class="view-more">View More</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="three-panel__article">
+                <span class="three-panel__label">Recent Destination</span>
+                <div class="three-panel__content">
+                  <img
+                    class="three-panel__image"
+                    alt=""
+                    src="./public/rectangle-424-4@2x.png" />
+                  <div class="three-panel__description">
+                    <b class="three-panel__title"
+                      >A Romantic Weekend in Santorini</b
+                    >
+                    <div class="three-panel__text">
+                      Your guide to a perfect couple's getaway on the enchanting
+                      island of Santorini.
+                    </div>
+                    <a class="view-more">View More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="events">
+        <div class="container">
+          <div class="events__inner">
+            <ul class="events__list">
+              <li class="events__item">
+                <article class="event-card">
+                  <div class="event-card__img_wrapper">
+                    <img src="./public/event-background@3x.png" alt="" />
+                  </div>
+                  <div class="event-card__content">
+                    <div class="event-card__tag">
+                      <span class="event-card__tag-text"
+                        >Recent Local Event Guide</span
+                      >
+                    </div>
+                    <h3 class="event-card__title">
+                      Romantic Spa Retreats for Two
+                    </h3>
+                    <p class="event-card__description">
+                      Relax and rejuvenate together at these top wellness
+                      destinations.
+                    </p>
+                  </div>
+                </article>
+              </li>
+              <li class="events__item">
+                <article class="event-card">
+                  <div class="event-card__img_wrapper">
+                    <img src="./public/event-background@3x.png" alt="" />
+                  </div>
+                  <div class="event-card__content">
+                    <div class="event-card__tag">
+                      <span class="event-card__tag-text"
+                        >Recent Local Event Guide</span
+                      >
+                    </div>
+                    <h3 class="event-card__title">
+                      Romantic Spa Retreats for Two
+                    </h3>
+                    <p class="event-card__description">
+                      Relax and rejuvenate together at these top wellness
+                      destinations.
+                    </p>
+                  </div>
+                </article>
+              </li>
+              <li class="events__item">
+                <article class="event-card">
+                  <div class="event-card__img_wrapper">
+                    <img src="./public/frame-2221@3x.png" alt="" />
+                  </div>
+                  <div class="event-card__content">
+                    <div class="event-card__tag">
+                      <span class="event-card__tag-text"
+                        >Recent Local Event Guide</span
+                      >
+                    </div>
+                    <h3 class="event-card__title">
+                      Romantic Spa Retreats for Two
+                    </h3>
+                    <p class="event-card__description">
+                      Relax and rejuvenate together at these top wellness
+                      destinations.
+                    </p>
+                  </div>
+                </article>
+              </li>
+              <li class="events__item">
+                <article class="event-card">
+                  <div class="event-card__img_wrapper">
+                    <img src="./public/frame-2223@3x.png" alt="" />
+                  </div>
+                  <div class="event-card__content">
+                    <div class="event-card__tag">
+                      <span class="event-card__tag-text"
+                        >Recent Local Event Guide</span
+                      >
+                    </div>
+                    <h3 class="event-card__title">
+                      Romantic Spa Retreats for Two
+                    </h3>
+                    <p class="event-card__description">
+                      Relax and rejuvenate together at these top wellness
+                      destinations.
+                    </p>
+                  </div>
+                </article>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="review">
+        <div class="container">
+          <div class="review__inner">
+            <div class="review__container">
+              <img
+                class="review__image"
+                alt=""
+                src="./public/image-2024-07-18t13-23-52-553z1@2x.png" />
+            </div>
+            <div class="review__content">
+              <div class="review__content-inner">
+                <div class="review__header">
+                  <div class="review__label">
+                    <div class="review__category">Recent product Review</div>
+                  </div>
+                  <h3 class="review__title">
+                    The Overwater Bungalow Experience in Bora Bora
+                  </h3>
+                </div>
+                <div class="review__description">
+                  A detailed review of staying in an iconic overwater bungalow,
+                  with insights into service, amenities, and romantic perks
+                </div>
+                  <a href="#" class="view-more">View More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="destination-guides">
+        <div class="container">
+          <div class="destination-guides__inner">
+            <div class="destination-guides__image-wrapper">
+              <img
+                class="destination-guides__main-image"
+                alt=""
+                src="./public/image-1@2x.png" />
+            </div>
+            <div class="destination-guides__content">
+              <div class="destination-guides__tag">
+                <div class="destination-guides__tag-text">
+                  recent destination guides
+                </div>
+              </div>
+              <ul class="destination-guides__list">
+                <li class="destination-article">
+                  <div class="destination-article__top">
+                    <div class="destination-article__image-wrapper">
+                      <img
+                        class="destination-article__image"
+                        alt=""
+                        src="./public/frame-2245@2x.png" />
+                    </div>
+                    <b class="destination-article__title">
+                      The World's Most Romantic Retreats: February Edition
+                    </b>
+                  </div>
+                  <div class="destination-article__content">
+                    <div class="destination-article__description">
+                      Explore the ultimate romantic destinations for February
+                      2024, from idyllic island getaways to luxurious city
+                      retreats.
+                    </div>
+                    <a class="view-more">View More</a>
+                  </div>
+                </li>
+                <li class="destination-article">
+                  <div class="destination-article__top">
+                    <div class="destination-article__image-wrapper">
+                      <img
+                        class="destination-article__image"
+                        alt=""
+                        src="./public/frame-2246@2x.png" />
+                    </div>
+                    <b class="destination-article__title">
+                      Travel for Two: Balancing Interests in Romantic Getaways
+                    </b>
+                  </div>
+                  <div class="destination-article__content">
+                    <div class="destination-article__description">
+                      Advice on planning trips that cater to both partners'
+                      interests without compromise.
+                    </div>
+                    <a class="view-more">View More</a>
+                  </div>
+                </li>
+                <li class="destination-article">
+                  <div class="destination-article__top">
+                    <div class="destination-article__image-wrapper">
+                      <img
+                        class="destination-article__image"
+                        alt=""
+                        src="./public/frame-2247@2x.png" />
+                    </div>
+                    <b class="destination-article__title">
+                      A History of Romance in Iconic Destinations
+                    </b>
+                  </div>
+                  <div class="destination-article__content">
+                    <div class="destination-article__description">
+                      Explore how certain destinations became synonymous with
+                      romance, from Venice to the Taj Mahal.
+                    </div>
+                    <a class="view-more">View More</a>
+                  </div>
+                </li>
+                <li class="destination-article">
+                  <div class="destination-article__top">
+                    <div class="destination-article__image-wrapper">
+                      <img
+                        class="destination-article__image"
+                        alt=""
+                        src="./public/frame-2244@2x.png" />
+                    </div>
+                    <b class="destination-article__title">
+                      Cultural Etiquette for Romantic Travel Abroad
+                    </b>
+                  </div>
+                  <div class="destination-article__content">
+                    <div class="destination-article__description">
+                      A guide to understanding cultural norms while traveling as
+                      a couple, from public displays of affection to gift-giving
+                      traditions.
+                    </div>
+                    <a class="view-more">View More</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__inner">
+          <div class="footer__info">
+            <div class="footer__logo logo">
+              <img
+                class="logo__icon"
                 loading="lazy"
                 alt=""
-                src="./public/vector.svg" />
-
+                src="./public/logo-footer.svg" />
+            </div>
+            <div class="footer__links">
+              <div class="footer__link">Cookie Policy</div>
+              <a class="footer__link">Terms & Conditions</a>
+              <a class="footer__link">Privacy Policy</a>
+            </div>
+            <div class="footer__social">
               <img
-                class="image-white-2024-12-10t17-28-4-icon"
-                loading="lazy"
+                class="footer__social-icon"
                 alt=""
-                src="./public/image-white-2024-12-10t17-28-41-713z-1@2x.png" />
-            </div>
-            <div class="footer-links">
-              <a class="terms-conditions" href="/">Cookie Policy</a>
-              <a class="terms-conditions" href="/">Terms & Conditions</a>
-              <a class="terms-conditions" href="/">Privacy Policy</a>
-            </div>
-            <div class="footer-items">
-              <a href="/">
-                <img class="item-link" alt="" src="./public/item--link.svg" />
-              </a>
-              <a href="/">
-                <img class="item-link1" alt="" src="./public/item--link-1.svg"
-              /></a>
-
-              <a href="/">
-                <img class="item-link2" alt="" src="./public/item--link-2.svg"
-              /></a>
-
-              <a href="/">
-                <img class="item-link1" alt="" src="./public/item--link-3.svg"
-              /></a>
+                src="./public/item--link.svg" />
+              <img
+                class="footer__social-icon"
+                alt=""
+                src="./public/item--link-1.svg" />
+              <img
+                class="footer__social-icon"
+                alt=""
+                src="./public/item--link-2.svg" />
+              <img
+                class="footer__social-icon"
+                alt=""
+                src="./public/item--link-3.svg" />
             </div>
           </div>
-          <div class="bloggers-ltd">Bloggers Ltd © 2024</div>
+          <div class="footer__copyright">Bloggers Ltd © 2024</div>
         </div>
       </div>
-    </div>
+    </footer>
   </body>
 </html>
