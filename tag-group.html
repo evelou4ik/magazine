@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open Sans:wght@400;600&display=swap" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Tag Group Header */
+
+      .tag_group_header {
+        display: block;
+        width: 100%;
+      }
+
+      .tag_group_header__inner {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+      }
+
+      .tag_group_header__title {
+        font-size: 40px;
+        line-height: 1.4;
+        font-weight: 600;
+        color: var(--black-80);
+      }
+
+      .tag_group_header__description {
+        font-size: 14px;
+        line-height: 1.7;
+        color: var(--black-60);
+      }
+
+      @media screen and (max-width: 1024px) {
+        .tag_group_header__inner {
+          gap: 10px;
+          margin-bottom: 20px;
+        }
+
+        .tag_group_header__title {
+          font-size: 24px;
+        }
+      }
+
+      /* Tag Group */
+
+      .tag_group {
+        display: block;
+        width: 100%;
+      }
+
+      .tag_group__inner {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 70px;
+      }
+
+      .tag_group__top {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px;
+        width: 100%;
+        border: 1px solid var(--gray-100);
+        border-left: none;
+        border-right: none;
+ 
+      }
+
+      .tag_group__top h2 {
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 31px;
+        line-height: 1.51;
+      }
+
+      .tag_group__content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 50px;
+      }
+
+      .tag_group__list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        width: 100%;
+        gap: 30px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .tag_group__item {
+        display: block;
+        width: 100%;
+      }
+
+      .tag_group__article {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+      }
+
+      .tag_group__image {
+        display: block;
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+      }
+
+      .tag_group__text {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+      }
+
+      .tag_group__title {
+        font-size: 20px;
+        line-height: 1.4;
+        font-weight: 600;
+        color: var(--black-80);
+      }
+
+      .tag_group__description {
+        font-size: 14px;
+        line-height: 1.7;
+        font-family: "Roboto", sans-serif;
+        color: var(--black-40);
+      }
+
+      .tag_group__meta {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .tag_group__icon {
+        display: block;
+        width: 14px;
+        height: 14px;
+      }
+
+      .tag_group__date {
+        font-size: 14px;
+        line-height: 1;
+        color: var(--black-60);
+      }
+
+      .tag_group__footer {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
+      
+      .tag_group .view-more {
+        height: 36px;
+        padding: 8px 16px;
+        background-color: var(--primary);
+        color: var(--white);
+        border-radius: 4px;
+        border: none;
+        text-decoration: none;
+        font-size: 14px;
+        line-height: 1.4;
+        min-width: 108px;
+        opacity: 1;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .tag_group__list {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+        }
+
+        .tag_group__image {
+          height: 97px;
+        }
+
+        .tag_group__inner {
+            gap: 40px;
+        }
+
+        .tag_group .view-more {
+            min-width: 170px;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        .tag_group__list {
+          grid-template-columns: 1fr;
+        }
+
+        .tag_group__article {
+            flex-direction: row;
+        }
+
+        .tag_group__text {
+            order: -1;
+        }
+
+        .tag_group__description {
+            display: none;
+        }
+      }
+
+      @media screen and (max-width: 599px) {
+        .tag_group__image {
+            width: 97px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header__inner">
+          <div class="header__top">
+            <a href="/" class="header__logo">
+              <img
+                class="header__logo-img"
+                alt="Site Logo"
+                src="./public/logo.svg" />
+            </a>
+            <button class="lang-switcher">
+              <img
+                class="lang-switcher__icon"
+                alt="UK flag"
+                src="./public/unitedkingdom-1.svg" />
+              <span class="lang-switcher__text">UK EDITION</span>
+            </button>
+          </div>
+          <nav class="main-nav">
+            <ul class="main-nav__list">
+              <li class="main-nav__item">
+                <a href="/" class="main-nav__link">
+                  <span>Magazine</span>
+                  <img class="main-nav__icon" alt="" src="./public/icon.svg" />
+                </a>
+              </li>
+              <li class="main-nav__item">
+                <a href="/" class="main-nav__link">Inspiration</a>
+              </li>
+              <li class="main-nav__item">
+                <a href="/" class="main-nav__link">Destinations</a>
+              </li>
+              <li class="main-nav__item">
+                <a href="/" class="main-nav__link">Places To Stay</a>
+              </li>
+              <li class="main-nav__item">
+                <a href="/" class="main-nav__link">Style & Culture</a>
+              </li>
+              <li class="main-nav__item">
+                <a href="/" class="main-nav__link">Food and Drink</a>
+              </li>
+              <li class="main-nav__item">
+                <a href="/" class="main-nav__link">Wellness & Spas</a>
+              </li>
+              <li class="main-nav__item">
+                <a href="/" class="main-nav__link">News & Advice</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="tag_group_header">
+        <div class="container">
+          <div class="tag_group_header__inner">
+            <h1 class="tag_group_header__title">Destinations</h1>
+            <p class="tag_group_header__description">
+              Our pick of the best places in the world to travel to and explore
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="tag_group">
+        <div class="container">
+          <div class="tag_group__inner">
+            <div class="tag_group__top">
+              <h2>Europe</h2>
+            </div>
+            <div class="tag_group__content">
+              <ul class="tag_group__list">
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241114-142128-673607683d08d@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241114-141944-67360700e81c3@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241115-102748-6737222471629@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      alt=""
+                      src="./public/20241115-103629-6737242db576c@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241114-142239-673607afcb38e@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241115-105621-673728d506aa1@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241115-111612-67372d7c5c230@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      alt=""
+                      src="./public/20241114-141846-673606c6305c2@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+              </ul>
+              <div class="tag_group__footer">
+                <button class="view-more">View more</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tag_group">
+        <div class="container">
+          <div class="tag_group__inner">
+            <div class="tag_group__top">
+              <h2>Africa</h2>
+            </div>
+            <div class="tag_group__content">
+              <ul class="tag_group__list">
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241114-142128-673607683d08d@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241114-141944-67360700e81c3@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241115-102748-6737222471629@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      alt=""
+                      src="./public/20241115-103629-6737242db576c@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241114-142239-673607afcb38e@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241115-105621-673728d506aa1@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241115-111612-67372d7c5c230@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      alt=""
+                      src="./public/20241114-141846-673606c6305c2@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+              </ul>
+              <div class="tag_group__footer">
+                <button class="view-more">View more</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tag_group">
+        <div class="container">
+          <div class="tag_group__inner">
+            <div class="tag_group__top">
+              <h2>Asia</h2>
+            </div>
+            <div class="tag_group__content">
+              <ul class="tag_group__list">
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241114-142128-673607683d08d@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241114-141944-67360700e81c3@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241115-102748-6737222471629@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      alt=""
+                      src="./public/20241115-103629-6737242db576c@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241114-142239-673607afcb38e@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241115-105621-673728d506aa1@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241115-111612-67372d7c5c230@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      alt=""
+                      src="./public/20241114-141846-673606c6305c2@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+              </ul>
+              <div class="tag_group__footer">
+                <button class="view-more">View more</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="subscription">
+        <div class="container">
+          <div class="subscription__inner">
+            <p class="subscription__text">
+              Our editors` picks of the latest and greatest in travel -
+              delivered to your inbox daily
+            </p>
+            <button class="subscription__button" type="button">
+              Subscribe
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="magazine">
+        <div class="container">
+          <div class="magazine__inner">
+            <div class="magazine__header">
+              <div class="magazine__intro">
+                <i class="magazine__label">Look inside</i>
+                <h1 class="magazine__title">December 2024 Edition</h1>
+              </div>
+              <div class="magazine__description">
+                <span class="magazine__divider"></span>
+                <p class="magazine__text">
+                  Uncover the charm and excitement of city life with our urban
+                  travel guide.
+                </p>
+              </div>
+            </div>
+
+            <div class="magazine__content">
+              <article class="cover">
+                <div class="cover__media">
+                  <img
+                    class="cover__image"
+                    src="./public/image-container@3x.png"
+                    alt="December 2024 Edition Cover" />
+                  <div class="cover__overlay"></div>
+                </div>
+
+                <div class="cover__info">
+                  <time class="cover__date">
+                    <span class="cover__year">2024</span>
+                    <span class="cover__month">December</span>
+                  </time>
+                  <p class="cover__description">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor
+                  </p>
+                </div>
+              </article>
+
+              <div class="featured">
+                <div class="featured__top">
+                  <span class="tag">City Breaks</span>
+                  <h2 class="featured__title">
+                    City Breaks: Discover the World's Most Vibrant Urban
+                    Destinations
+                  </h2>
+                  <p class="featured__description">
+                    Explore the world's most vibrant cities with our August
+                    edition focusing on city breaks. Whether it's a weekend
+                    getaway or an extended stay, discover the urban landscapes
+                    that offer rich history, culture, and cuisine
+                  </p>
+                </div>
+
+                <div class="featured__stories">
+                  <article class="story">
+                    <img
+                      class="story__image"
+                      src="./public/image-2024-07-18t13-27-47-171z@2x.png"
+                      alt="Story thumbnail"
+                      loading="lazy" />
+                    <div class="story__content">
+                      <span class="story__label">Current Main Story</span>
+                      <h3 class="story__title">
+                        The World's Most Romantic Retreats: February Edition
+                      </h3>
+                    </div>
+                  </article>
+
+                  <article class="story">
+                    <img
+                      class="story__image"
+                      src="./public/image-2024-07-18t13-27-47-171z@2x.png"
+                      alt="Story thumbnail"
+                      loading="lazy" />
+                    <div class="story__content">
+                      <span class="story__label">Current Editorial Story</span>
+                      <h3 class="story__title">
+                        Travel for Two: Balancing Interests in Romantic Getaways
+                      </h3>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tag_group">
+        <div class="container">
+          <div class="tag_group__inner">
+            <div class="tag_group__top">
+              <h2>Australia</h2>
+            </div>
+            <div class="tag_group__content">
+              <ul class="tag_group__list">
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241114-142128-673607683d08d@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241114-141944-67360700e81c3@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241115-102748-6737222471629@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      alt=""
+                      src="./public/20241115-103629-6737242db576c@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241114-142239-673607afcb38e@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241115-105621-673728d506aa1@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241115-111612-67372d7c5c230@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      alt=""
+                      src="./public/20241114-141846-673606c6305c2@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+              </ul>
+              <div class="tag_group__footer">
+                <button class="view-more">View more</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tag_group">
+        <div class="container">
+          <div class="tag_group__inner">
+            <div class="tag_group__top">
+              <h2>North America</h2>
+            </div>
+            <div class="tag_group__content">
+              <ul class="tag_group__list">
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241114-142128-673607683d08d@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241114-141944-67360700e81c3@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241115-102748-6737222471629@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      alt=""
+                      src="./public/20241115-103629-6737242db576c@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241114-142239-673607afcb38e@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241115-105621-673728d506aa1@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241115-111612-67372d7c5c230@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      alt=""
+                      src="./public/20241114-141846-673606c6305c2@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+              </ul>
+              <div class="tag_group__footer">
+                <button class="view-more">View more</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tag_group">
+        <div class="container">
+          <div class="tag_group__inner">
+            <div class="tag_group__top">
+              <h2>South America</h2>
+            </div>
+            <div class="tag_group__content">
+              <ul class="tag_group__list">
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241114-142128-673607683d08d@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241114-141944-67360700e81c3@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241115-102748-6737222471629@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      alt=""
+                      src="./public/20241115-103629-6737242db576c@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241114-142239-673607afcb38e@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241115-105621-673728d506aa1@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      loading="lazy"
+                      alt=""
+                      src="./public/20241115-111612-67372d7c5c230@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li class="tag_group__item">
+                  <article class="tag_group__article">
+                    <img
+                      class="tag_group__image"
+                      alt=""
+                      src="./public/20241114-141846-673606c6305c2@2x.png" />
+                    <div class="tag_group__text">
+                      <h3 class="tag_group__title">
+                        The best in Paris for December
+                      </h3>
+                      <p class="tag_group__description">
+                        Cultural highlights to know about in the French capital
+                        right now
+                      </p>
+                      <div class="tag_group__meta">
+                        <img
+                          class="tag_group__icon"
+                          alt=""
+                          src="./public/time.svg" />
+                        <time class="tag_group__date">2023-10-15</time>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+              </ul>
+              <div class="tag_group__footer">
+                <button class="view-more">View more</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__inner">
+          <div class="footer__info">
+            <div class="footer__logo logo">
+              <img
+                class="logo__icon"
+                loading="lazy"
+                alt=""
+                src="./public/logo-footer.svg" />
+            </div>
+            <div class="footer__links">
+              <div class="footer__link">Cookie Policy</div>
+              <a class="footer__link">Terms & Conditions</a>
+              <a class="footer__link">Privacy Policy</a>
+            </div>
+            <div class="footer__social">
+              <img
+                class="footer__social-icon"
+                alt=""
+                src="./public/item--link.svg" />
+              <img
+                class="footer__social-icon"
+                alt=""
+                src="./public/item--link-1.svg" />
+              <img
+                class="footer__social-icon"
+                alt=""
+                src="./public/item--link-2.svg" />
+              <img
+                class="footer__social-icon"
+                alt=""
+                src="./public/item--link-3.svg" />
+            </div>
+          </div>
+          <div class="footer__copyright">Bloggers Ltd © 2024</div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
