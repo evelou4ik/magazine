@@ -32,21 +32,21 @@
                 alt="Site Logo"
                 src="./public/logo.svg" />
             </a>
-            <button class="lang-switcher">
+            <button class="lang-switcher" id="edition_btn">
               <img
                 class="lang-switcher__icon"
                 alt="UK flag"
-                src="./public/unitedkingdom-1.svg" />
+                src="./public/26.svg" />
               <span class="lang-switcher__text">UK EDITION</span>
+            </button>
+            <button class="burger"> 
+              <span></span>
             </button>
           </div>
           <nav class="main-nav">
             <ul class="main-nav__list">
               <li class="main-nav__item">
-                <a href="/" class="main-nav__link">
-                  <span>Magazine</span>
-                  <img class="main-nav__icon" alt="" src="./public/icon.svg" />
-                </a>
+                <a href="/" class="main-nav__link">Magazine</a>
               </li>
               <li class="main-nav__item">
                 <a href="/" class="main-nav__link">Inspiration</a>
@@ -424,9 +424,174 @@
         </div>
       </div>
     </footer>
+    <div class="modal edition_modal" id="edition_modal">
+      <div class="overlay"></div>
+      <div class="modal_content">
+        <div class="modal_content__container">
+          <ul class="edition_modal__list">
+            <li class="edition_modal__item" data-edition="UK">
+              <a href="/" class="edition_modal__item_btn">
+                <img src="./public/26.svg" alt="uk flag" />
+                <span class="edition_modal__item_text">UK EDITION</span>
+              </a>
+            </li>
+            <li class="edition_modal__item" data-edition="HR">
+              <a href="/" class="edition_modal__item_btn">
+                <img src="./public/2.svg" alt="uk flag" />
+                <span class="edition_modal__item_text">Croatia EDITION</span>
+              </a>
+            </li>
+            <li class="edition_modal__item" data-edition="ES">
+              <a href="/" class="edition_modal__item_btn">
+                <img src="./public/3.svg" alt="uk flag" />
+                <span class="edition_modal__item_text">spain EDITION</span>
+              </a>
+            </li>
+            <li class="edition_modal__item" data-edition="FR">
+              <a href="/" class="edition_modal__item_btn">
+                <img src="./public/4.svg" alt="uk flag" />
+                <span class="edition_modal__item_text">france EDITION</span>
+              </a>
+            </li>
+            <li class="edition_modal__item" data-edition="PL">
+              <a href="/" class="edition_modal__item_btn">
+                <img src="./public/5.svg" alt="uk flag" />
+                <span class="edition_modal__item_text">poland EDITION</span>
+              </a>
+            </li>
+            <li class="edition_modal__item" data-edition="JP">
+              <a href="/" class="edition_modal__item_btn">
+                <img src="./public/6.svg" alt="uk flag" />
+                <span class="edition_modal__item_text">japan EDITION</span>
+              </a>
+            </li>
+            <li class="edition_modal__item" data-edition="CN">
+              <a href="/" class="edition_modal__item_btn">
+                <img src="./public/7.svg" alt="uk flag" />
+                <span class="edition_modal__item_text">china EDITION</span>
+              </a>
+            </li>
+            <li class="edition_modal__item" data-edition="KR">
+              <a href="/" class="edition_modal__item_btn">
+                <img src="./public/8.svg" alt="uk flag" />
+                <span class="edition_modal__item_text">south korea EDITION</span>
+              </a>
+            </li>
+            <li class="edition_modal__item" data-edition="TH">
+              <a href="/" class="edition_modal__item_btn">
+                <img src="./public/9.svg" alt="uk flag" />
+                <span class="edition_modal__item_text">thailand EDITION</span>
+              </a>
+            </li>
+            <li class="edition_modal__item" data-edition="MN">
+              <a href="/" class="edition_modal__item_btn">
+                <img src="./public/10.svg" alt="uk flag" />
+                <span class="edition_modal__item_text">mongolia EDITION</span>
+              </a>
+            </li>
+            <li class="edition_modal__item" data-edition="ZA">
+              <a href="/" class="edition_modal__item_btn">
+                <img src="./public/11.svg" alt="uk flag" />
+                <span class="edition_modal__item_text">south africa EDITION</span>
+              </a>
+            </li>
+            <li class="edition_modal__item" data-edition="NG">
+              <a href="/" class="edition_modal__item_btn">
+                <img src="./public/12.svg" alt="uk flag" />
+                <span class="edition_modal__item_text">nigeria EDITION</span>
+              </a>
+            </li>
+            <li class="edition_modal__item" data-edition="KE">
+              <a href="/" class="edition_modal__item_btn">
+                <img src="./public/13.svg" alt="uk flag" />
+                <span class="edition_modal__item_text">kenya EDITION</span>
+              </a>
+            </li>
+            <li class="edition_modal__item" data-edition="MA">
+              <a href="/" class="edition_modal__item_btn">
+                <img src="./public/14.svg" alt="uk flag" />
+                <span class="edition_modal__item_text">morocco EDITION</span>
+              </a>
+            </li>
+            <li class="edition_modal__item" data-edition="TZ">
+              <a href="/" class="edition_modal__item_btn">
+                <img src="./public/15.svg" alt="uk flag" />
+                <span class="edition_modal__item_text">tanzania EDITION</span>
+              </a>
+            </li>
+            <li class="edition_modal__item" data-edition="US">
+              <a href="/" class="edition_modal__item_btn">
+                <img src="./public/16.svg" alt="uk flag" />
+                <span class="edition_modal__item_text">usa EDITION</span>
+              </a>
+            </li>
+            <li class="edition_modal__item" data-edition="CA">
+              <a href="/" class="edition_modal__item_btn">
+                <img src="./public/17.svg" alt="uk flag" />
+                <span class="edition_modal__item_text">canada EDITION</span>
+              </a>
+            </li>
+            <li class="edition_modal__item" data-edition="MX">
+              <a href="/" class="edition_modal__item_btn">
+                <img src="./public/18.svg" alt="uk flag" />
+                <span class="edition_modal__item_text">mexico EDITION</span>
+              </a>
+            </li>
+            <li class="edition_modal__item" data-edition="JM">
+              <a href="/" class="edition_modal__item_btn">
+                <img src="./public/19.svg" alt="uk flag" />
+                <span class="edition_modal__item_text">jamaica EDITION</span>
+              </a>
+            </li>
+            <li class="edition_modal__item" data-edition="CU">
+              <a href="/" class="edition_modal__item_btn">
+                <img src="./public/20.svg" alt="uk flag" />
+                <span class="edition_modal__item_text">cuba EDITION</span>
+              </a>
+            </li>
+            <li class="edition_modal__item" data-edition="BR">
+              <a href="/" class="edition_modal__item_btn">
+                <img src="./public/21.svg" alt="uk flag" />
+                <span class="edition_modal__item_text">brazil EDITION</span>
+              </a>
+            </li>
+            <li class="edition_modal__item" data-edition="AR">
+              <a href="/" class="edition_modal__item_btn">
+                <img src="./public/22.svg" alt="uk flag" />
+                <span class="edition_modal__item_text">argentina EDITION</span>
+              </a>
+            </li>
+            <li class="edition_modal__item" data-edition="CO">
+              <a href="/" class="edition_modal__item_btn">
+                <img src="./public/23.svg" alt="uk flag" />
+                <span class="edition_modal__item_text">colombia EDITION</span>
+              </a>
+            </li>
+            <li class="edition_modal__item" data-edition="CL">
+              <a href="/" class="edition_modal__item_btn">
+                <img src="./public/24.svg" alt="uk flag" />
+                <span class="edition_modal__item_text">chile EDITION</span>
+              </a>
+            </li>
+            <li class="edition_modal__item" data-edition="UY">
+              <a href="/" class="edition_modal__item_btn">
+                <img src="./public/25.svg" alt="uk flag" />
+                <span class="edition_modal__item_text">uruguay EDITION</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <button class="modal_content__close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <path d="M23 5.9L21.1 4L13.5 11.6L5.9 4L4 5.9L11.6 13.5L4 21.1L5.9 23L13.5 15.4L21.1 23L23 21.1L15.4 13.5L23 5.9Z" fill="black" fill-opacity="0.8"/>
+          </svg>
+        </button>
+      </div>
+    </div>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
     crossorigin=""></script>
+    <script src="script.js"></script>
     <script>
       const tripMapData = [
           {
