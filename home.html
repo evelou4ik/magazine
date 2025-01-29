@@ -36,7 +36,7 @@
                 src="./public/26.svg" />
               <span class="lang-switcher__text">UK EDITION</span>
             </button>
-            <button class="burger"> 
+            <button class="burger">
               <span></span>
             </button>
           </div>
@@ -383,42 +383,42 @@
           </div>
         </div>
       </div>
-      <div class="gallery">
+      <div class="gallery gallery__widget">
         <div class="container">
           <div class="gallery__inner">
             <ul class="gallery__list">
-              <li class="gallery__item">
+              <li class="gallery__item gallery__widget_item">
                 <img
                   loading="lazy"
                   alt="Gallery image"
                   src="./public/frame-2245@2x.png" />
               </li>
-              <li class="gallery__item">
+              <li class="gallery__item gallery__widget_item">
                 <img
                   loading="lazy"
                   alt="Gallery image"
                   src="./public/frame-2246@2x.png" />
               </li>
-              <li class="gallery__item">
+              <li class="gallery__item gallery__widget_item">
                 <img
                   loading="lazy"
                   alt="Gallery image"
                   src="./public/frame-2247@2x.png" />
               </li>
-              <li class="gallery__item">
+              <li class="gallery__item gallery__widget_item">
                 <img
                   loading="lazy"
                   alt="Gallery image"
                   src="./public/frame-2244@2x.png" />
                 <a href="/">View more</a>
               </li>
-              <li class="gallery__item">
+              <li class="gallery__item gallery__widget_item">
                 <img alt="Gallery image" src="./public/frame-2246-1@2x.png" />
               </li>
-              <li class="gallery__item">
+              <li class="gallery__item gallery__widget_item">
                 <img alt="Gallery image" src="./public/frame-2247-1@2x.png" />
               </li>
-              <li class="gallery__item">
+              <li class="gallery__item gallery__widget_item">
                 <img alt="Gallery image" src="./public/frame-2245-1@2x.png" />
               </li>
             </ul>
@@ -1017,7 +1017,9 @@
             <li class="edition_modal__item" data-edition="KR">
               <a href="/" class="edition_modal__item_btn">
                 <img src="./public/8.svg" alt="uk flag" />
-                <span class="edition_modal__item_text">south korea EDITION</span>
+                <span class="edition_modal__item_text"
+                  >south korea EDITION</span
+                >
               </a>
             </li>
             <li class="edition_modal__item" data-edition="TH">
@@ -1035,7 +1037,9 @@
             <li class="edition_modal__item" data-edition="ZA">
               <a href="/" class="edition_modal__item_btn">
                 <img src="./public/11.svg" alt="uk flag" />
-                <span class="edition_modal__item_text">south africa EDITION</span>
+                <span class="edition_modal__item_text"
+                  >south africa EDITION</span
+                >
               </a>
             </li>
             <li class="edition_modal__item" data-edition="NG">
@@ -1125,12 +1129,235 @@
           </ul>
         </div>
         <button class="modal_content__close">
-          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
-            <path d="M23 5.9L21.1 4L13.5 11.6L5.9 4L4 5.9L11.6 13.5L4 21.1L5.9 23L13.5 15.4L21.1 23L23 21.1L15.4 13.5L23 5.9Z" fill="black" fill-opacity="0.8"/>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="26"
+            height="26"
+            viewBox="0 0 26 26"
+            fill="none">
+            <path
+              d="M23 5.9L21.1 4L13.5 11.6L5.9 4L4 5.9L11.6 13.5L4 21.1L5.9 23L13.5 15.4L21.1 23L23 21.1L15.4 13.5L23 5.9Z"
+              fill="black"
+              fill-opacity="0.8" />
           </svg>
         </button>
       </div>
     </div>
+    <div class="modal gallery_modal" id="gallery_modal">
+      <div class="overlay"></div>
+      <div class="modal_content">
+        <div class="modal_content__container">
+          <div class="modal_content__side gallery_modal__slider">
+            <div class="gallery_modal__main_img_wrapper">
+              <div class="gallery_modal__main_img">
+                <img id="selectedImage" src="" alt="" data-index="0" />
+              </div>
+              <div class="gallery_modal__card"></div>
+            </div>
+            <div class="gallery_modal__image_row_container">
+              <button class="slider_btn slider_btn__left invisible">
+                <svg
+                  class="svg-default"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20">
+                  <path
+                    d="M16.25 10L3.75 10M3.75 10L9.375 15.625M3.75 10L9.375 4.375"
+                    stroke="black"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+              <button class="slider_btn slider_btn__right">
+                <svg
+                  class="svg-default"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20">
+                  <path
+                    d="M3.75 10H16.25M16.25 10L10.625 4.375M16.25 10L10.625 15.625"
+                    stroke="black"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="gallery_modal__image_row"></div>
+            </div>
+            <div class="gallery_modal__arrows">
+              <button class="slider_btn slider_btn__left invisible">
+                <svg
+                  class="svg-default"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20">
+                  <path
+                    d="M16.25 10L3.75 10M3.75 10L9.375 15.625M3.75 10L9.375 4.375"
+                    stroke="black"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="gallery_modal__count">
+                <span class="current_index">0</span>
+                /
+                <span class="total_count">0</span>
+              </div>
+              <button class="slider_btn slider_btn__right">
+                <svg
+                  class="svg-default"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20">
+                  <path
+                    d="M3.75 10H16.25M16.25 10L10.625 4.375M16.25 10L10.625 15.625"
+                    stroke="black"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <button class="modal_content__close w-[30px] h-[30px]">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="30"
+              height="30"
+              viewBox="0 0 30 30"
+              fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M9.12261 9.12261C9.28608 8.95913 9.55113 8.95913 9.7146 9.12261L15 14.408L20.2854 9.12261C20.4489 8.95913 20.7139 8.95913 20.8774 9.12261C21.0409 9.28608 21.0409 9.55113 20.8774 9.7146L15.592 15L20.8774 20.2854C21.0409 20.4489 21.0409 20.7139 20.8774 20.8774C20.7139 21.0409 20.4489 21.0409 20.2854 20.8774L15 15.592L9.7146 20.8774C9.55113 21.0409 9.28608 21.0409 9.12261 20.8774C8.95913 20.7139 8.95913 20.4489 9.12261 20.2854L14.408 15L9.12261 9.7146C8.95913 9.55113 8.95913 9.28608 9.12261 9.12261Z"
+                fill="black"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="modal subscribe_modal" id="subscribe_modal">
+      <div class="overlay"></div>
+      <div class="modal_content">
+        <div class="modal_content__banner">
+          <img src="./public/frame-2222@2x.png" alt="subscribe banner">
+        </div>
+        <div class="modal_content__container">
+          <h2 class="modal_content__title">The Angela Burton Newsletters</h2>
+          <p class="modal_content__text">
+            Sign up your email address to get the best travel stories delivered
+            straight to your inbox. As well as receiving a regular newsletter
+            you will receive invitations to exclusive reader events, the best
+            subscription offers and much more.
+          </p>
+
+          <div class="modal_content__form">
+            <form class="form" id="form_subscribe">
+              <div class="form__content">
+                <span class="form__label">You have also chosen to subscrive to:</span>
+                <div class="form_field__wrapper" data-tag="The Daily">
+                  <label class="checkbox_field">
+                    <input class="form_field" type="checkbox" checked />
+                    <span class="checkbox"></span>
+                    <span>The Daily</span>
+                  </label>
+                </div>
+
+                <div class="form_field__wrapper text_field__wrapper">
+                  <label class="form_field__label">
+                    <span class="form_field__label_text">Enter your email address</span>
+                    <input class="form_field" type="email" required placeholder="Enter your email address" data-empty="An email address is required" />
+                    <span class="error-message"></span>
+                  </label>
+                </div>
+
+                <div class="form_field__wrapper">
+                  <label class="checkbox_field">
+                    <input class="form_field" type="checkbox" required data-empty="You must agree to the terms and conditions" />
+                    <span class="checkbox"></span>
+                    <span>I would like to receive inspiring travel content, straight to my inbox</span>
+                  </label>
+                  <span class="error-message"></span>
+                </div>
+
+                <div class="form__text">
+                  This site is protected by reCAPTCHA and the Google
+                  <a href="https://policies.google.com/privacy" target="new">Privacy Policy</a>
+                  and
+                  <a href="https://policies.google.com/terms" target="new">Terms of Service</a>&nbsp;apply.
+                </div>
+                <div class="form__text">
+                  Will be used in accordance with our
+                  <a href="/page/privacy-policy" target="new">Privacy Policy</a>
+                </div>
+              </div>
+
+              <div class="form__button_wrapper">
+                <button class="btn" type="submit">
+                  Subscribe
+                </button>
+                <div id="inline-badge" class="form__badge"></div>
+                <input type="hidden" id="score" name="score" value="" />
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <button class="modal_content__close">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 30 30"
+            fill="none">
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M9.12261 9.12261C9.28608 8.95913 9.55113 8.95913 9.7146 9.12261L15 14.408L20.2854 9.12261C20.4489 8.95913 20.7139 8.95913 20.8774 9.12261C21.0409 9.28608 21.0409 9.55113 20.8774 9.7146L15.592 15L20.8774 20.2854C21.0409 20.4489 21.0409 20.7139 20.8774 20.8774C20.7139 21.0409 20.4489 21.0409 20.2854 20.8774L15 15.592L9.7146 20.8774C9.55113 21.0409 9.28608 21.0409 9.12261 20.8774C8.95913 20.7139 8.95913 20.4489 9.12261 20.2854L14.408 15L9.12261 9.7146C8.95913 9.55113 8.95913 9.28608 9.12261 9.12261Z"
+              fill="black" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="modal subscribe_success_modal" id="subscribe_success_modal">
+      <div class="overlay"></div>
+      <div class="modal_content success-modal">
+        <div class="modal_content__container">
+          <div class="success-modal__content">
+            <span class="success-modal__title">
+              Thanks for Subscribing
+            </span>
+            <span class="success-modal__text">
+              You have successfully signed up to Angela Burton Magazine
+            </span>
+            <div class="success-modal__policy">
+              Will be used in accordance with our 
+              <a href="/page/privacy-policy" target="new">Privacy Policy</a>
+            </div>
+            <button class="btn">
+              Back to site
+            </button>
+          </div>
+        </div>
+        <button class="modal_content__close">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 30 30"
+            fill="none">
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M9.12261 9.12261C9.28608 8.95913 9.55113 8.95913 9.7146 9.12261L15 14.408L20.2854 9.12261C20.4489 8.95913 20.7139 8.95913 20.8774 9.12261C21.0409 9.28608 21.0409 9.55113 20.8774 9.7146L15.592 15L20.8774 20.2854C21.0409 20.4489 21.0409 20.7139 20.8774 20.8774C20.7139 21.0409 20.4489 21.0409 20.2854 20.8774L15 15.592L9.7146 20.8774C9.55113 21.0409 9.28608 21.0409 9.12261 20.8774C8.95913 20.7139 8.95913 20.4489 9.12261 20.2854L14.408 15L9.12261 9.7146C8.95913 9.55113 8.95913 9.28608 9.12261 9.12261Z"
+              fill="black" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <script src="https://www.google.com/recaptcha/api.js?render=explicit&onload=onRecaptchaLoadCallback" defer></script>
     <script src="script.js"></script>
   </body>
 </html>
